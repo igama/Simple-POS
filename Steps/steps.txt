@@ -1,0 +1,9 @@
+rails generate scaffold brand name:string logo_url:string
+
+rails generate scaffold category name:string image_url:string
+
+rails generate scaffold Product name:string image_url:string price:decimal brand_id:integer category_id:integer
+
+t.decimal :price, :precision => 8, :scale => 2
+t.integer :brand_id, :default => 1
+t.integer :category_id, :default => 1

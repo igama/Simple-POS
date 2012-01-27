@@ -28,8 +28,9 @@
     <%= f.number_field :brand_id %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br />
-    <%= f.number_field :category_id %>
+    <%= f.label :category %><br />
+    <%= f.select :category, Product::CATEGORY_TYPES,
+ 					:prompt => 'Select category of equipment'%>
   </div>
   <div class="actions">
     <%= f.submit %>

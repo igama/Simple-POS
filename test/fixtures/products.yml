@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  image_url: MyString
+  name: phone1
+  image_url: images/products/1.jpg
   price: 9.99
-  brand_id: 1
-  category_id: 1
+  brand: one
+  category: "Mobile"
 
 two:
-  name: MyString
-  image_url: MyString
+  name: phone2
+  image_url: images/products/2.jpg
   price: 9.99
-  brand_id: 1
-  category_id: 1
+  brand: one
+  category: "Tablet"

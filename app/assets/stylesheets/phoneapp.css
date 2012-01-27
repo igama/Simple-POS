@@ -1,0 +1,27 @@
+#brand_list table {
+        border-collapse: collapse;
+		width: 500px;
+}
+
+#brand_list table tr td {
+        padding: 5px;
+        vertical-align: top;
+}
+
+#brand_list .list_image {
+  height:       70px;
+}
+
+#brand_list .list_actions {
+  font-size:    x-small;
+  text-align:   right;
+  padding-left: 1em;
+}
+
+#brand_list .list_line_even {
+  background:   #ffffff;
+}
+
+#brand_list .list_line_odd {
+  background:   #ffffff;
+}

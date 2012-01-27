@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  logo_url: MyString
+  name: Apple
+  logo_url: apple.jpg
 
 two:
-  name: MyString
-  logo_url: MyString
+  name: Nokia
+  logo_url: nokia.jpg
