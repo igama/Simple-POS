@@ -10,6 +10,15 @@
   <%= @brand.logo_url %>
 </p>
 
+<p>
+	URL: <%= link_to @brand_url, @brand_url %>
+</p>
 
-<%= link_to 'Edit', edit_brand_path(@brand) %> |
+List of equipments
+<ul>
+<% @brand.products.each do |product| %>
+<li><%= link_to product.name, product %></li>
+<% end %>
+</ul>
+
 <%= link_to 'Back', brands_path %>
