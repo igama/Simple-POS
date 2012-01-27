@@ -4,12 +4,19 @@ one:
   name: phone1
   image_url: images/products/1.jpg
   price: 9.99
-  brand: one
-  category: "Mobile"
+  brand_id: 1
+  category: Mobile
 
 two:
   name: phone2
   image_url: images/products/2.jpg
   price: 9.99
-  brand: one
-  category: "Tablet"
+  brand_id: 1
+  category: Tablet
+  
+three:
+  name: phone3
+  image_url: images/products/3.jpg
+  price: 9.99
+  brand_id: 1
+  category: Tablet
