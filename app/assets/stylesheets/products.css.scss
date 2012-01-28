@@ -2,15 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#product_list table {
-        border-collapse: collapse;
-		width: 500px;
-}
 
-#product_list table tr td {
-        padding: 5px;
-        vertical-align: top;
-}
 
 #product_list .list_image {
   width: 60px;
@@ -21,12 +13,4 @@
   font-size:    x-small;
   text-align:   right;
   padding-left: 1em;
-}
-
-#product_list .list_line_even {
-  background:   #ffffff;
-}
-
-#product_list .list_line_odd {
-  background:   #ffffff;
 }

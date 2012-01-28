@@ -1,7 +1,7 @@
 Phoneshop::Application.routes.draw do
-  resources :products
+  get "store/index"
 
-  resources :categories
+  resources :products
 
   resources :brands
 
@@ -55,6 +55,8 @@ Phoneshop::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
+  
+  root :to => 'store#index', :as => 'store'
 
   # See how all your routes lay out with "rake routes"
 

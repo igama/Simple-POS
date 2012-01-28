@@ -1,36 +1,49 @@
-<h1>Listing products</h1>
 
-<div id="product_list">
+<div class="span-5 colborder">
+	<h3>A <span class="alt">Simple</span> Sidebar</h3>
+	<p>LOREM </p>
+</div>
 
-<table>
-  <tr>
-    <th>Image</th>
-    <th>Name</th>
-    <th>Price</th>
-    <th>Brand</th>
-    <th>Category</th>
-    <th>Actions</th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="span-17 prepend-1 last">
 
-<% @products.each do |product| %>
-  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
-	<td><%= image_tag(product.image_url, :class => 'list_image') %></td>    
-	<td><%= product.name %></td>
-    <td><%= product.price %></td>
-    <td><%= product.brand_id %></td>
-    <td><%= product.category %></td>
-    <td  class="list_actions">
-		<%= link_to 'Show', product %><br/>
-    	<%= link_to 'Edit', edit_product_path(product) %><br/>
-    	<%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %><br/>
-  </tr>
-<% end %>
-</table>
 
-<br />
+	<h3>Listing products</h3>
+
+	<div id="product_list">
+
+	<table>
+	  <tr>
+	    <th>Image</th>
+	    <th>Name</th>
+	    <th>Price</th>
+	    <th>Brand</th>
+	    <th>Category</th>
+	    <th>Actions</th>
+	    <th></th>
+	    <th></th>
+	  </tr>
+
+	<% @products.each do |product| %>
+	  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
+		<td><%= image_tag(product.image_url, :class => 'list_image') %></td>    
+		<td><%= product.name %></td>
+	    <td><%= product.price %></td>
+	    <td><%= product.brand_id %></td>
+	    <td><%= product.category %></td>
+	    <td  class="list_actions">
+			<%= link_to 'Show', product %><br/>
+	    	<%= link_to 'Edit', edit_product_path(product) %><br/>
+	    	<%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %><br/>
+	  </tr>
+	<% end %>
+	</table>
+
+	<br />
+
+	</div>
+
+	<%= link_to 'New Product', new_product_path %>
+
 
 </div>
 
-<%= link_to 'New Product', new_product_path %>
