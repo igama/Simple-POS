@@ -2,7 +2,7 @@
 	<h3>The <span class="alt">brands</span></h3>
 	<ul>
 	<% @brands.each do |brand| %>
-		<li> <%= brand.name %></li>
+		<li> <%= link_to brand.name, brand %></li>
 	<% end %>
 	</ul>
 </div>

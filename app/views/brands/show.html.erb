@@ -1,24 +1,37 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @brand.name %>
-</p>
+<div class="span-5 colborder">
+	<h3>The <span class="alt">brands</span></h3>
+	<ul>
+	<% @brands.each do |brand| %>
+		<li> <%= link_to brand.name, brand %></li>
+	<% end %>
+	</ul>
+</div>
 
-<p>
-  <b>Logo url:</b>
-  <%= @brand.logo_url %>
-</p>
+<div class="span-17 prepend-1 last">
 
-<p>
-	URL: <%= link_to @brand_url, @brand_url %>
-</p>
+	<p id="notice"><%= notice %></p>
 
-List of equipments
-<ul>
-<% @brand.products.each do |product| %>
-<li><%= link_to product.name, product %></li>
-<% end %>
-</ul>
+	<p>
+	  <b>Name:</b>
+	  <%= @brand.name %> : <%= link_to @brand_url, @brand_url %>
+	</p>
 
-<%= link_to 'Back', brands_path %>
+	<p>
+	  <b>Logo url:</b>
+	  <%= @brand.logo_url %>
+	</p>
+
+	List of equipments
+	<ul>
+	<% @brand.products.each do |product| %>
+	<li><%= link_to product.name, product %></li>
+	<% end %>
+	</ul>
+
+	<%= link_to 'Back', brands_path %>
+
+
+</div>
+
+
