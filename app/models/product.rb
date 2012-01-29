@@ -24,6 +24,7 @@ class Product < ActiveRecord::Base
     else
       erros.add(:base, 'Cart Items present')
       return false
+    end
   end
   
 end

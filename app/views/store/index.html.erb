@@ -9,6 +9,8 @@
 
 <div class="span-17 prepend-1 last">
 
+	<h2>Os mais vendidos</h2>
+
 	<div class="product-grid">
 		
 		<% var=1 %> 
@@ -21,13 +23,12 @@
 			<div class="image"><%= image_tag(product.image_url, :class => 'list_image') %></div>
 			<div class="name"><%= product.name  %></div>
 			<div class="price"><%= number_to_currency(product.price) %><br></div>
-			<div class="cart">
-				Add to Cart
-			</div>
+			<div class="cart"><%= button_to 'Add to Cart', cart_items_path(:product_id => product) %></div>
 		</div>
 		<% var +=1 %>
 		<% end %>
 		
 	</div>
+	<br/>
 
 </div>
