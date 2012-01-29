@@ -2,7 +2,7 @@
 
 <ul>
   <% @cart.cart_items.each do |item| %>
-	<li><%= item.product.name %> - <%= item.price %></li>
+	<li><%= item.product.name %> - <%= item.product.price %></li>
   <% end %>
 </ul>
 
