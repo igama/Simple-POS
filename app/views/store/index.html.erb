@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <div class="span-5 colborder">
 	<h2>The brands</h2>
 	<ul>
@@ -13,19 +15,14 @@
 
 	<div class="product-grid">
 		
-		<% var=1 %> 
-		<% @products.each do |product| %>
-			<% if var > 3 %>
-				<br\>
-				<% var = 1 %>
-			<% end %>	
+		<% @products.each do |product| %>	
 		<div>
 			<div class="image"><%= image_tag(product.image_url, :class => 'list_image') %></div>
 			<div class="name"><%= product.name  %></div>
 			<div class="price"><%= number_to_currency(product.price) %><br></div>
 			<div class="cart"><%= button_to 'Add to Cart', cart_items_path(:product_id => product) %></div>
 		</div>
-		<% var +=1 %>
+
 		<% end %>
 		
 	</div>

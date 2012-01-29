@@ -7,7 +7,9 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Brand.delete_all
-Product.delete_all 
+Product.delete_all
+Cart.delete_all
+CartItem.delete_all
 
 
 Brand.create(
@@ -48,3 +50,27 @@ Product.create(
   :brand_id => 1,
   :category => "Tablet"
   )
+  
+Product.create(
+  :name => 'Phone 4',
+  :image_url => '/images/products/3.jpg', 
+  :price => 7.50,
+  :brand_id => 1,
+  :category => "Mobile"
+)
+
+Product.create(
+  :name => 'Phone 5',
+  :image_url => '/images/products/1.jpg', 
+  :price => 17.50,
+  :brand_id => 2,
+  :category => "Mobile"
+)
+
+Product.create(
+  :name => 'Phone 6',
+  :image_url => '/images/products/2.jpg', 
+  :price => 10.50,
+  :brand_id => 2,
+  :category => "Mobile"
+)

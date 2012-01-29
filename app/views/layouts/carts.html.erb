@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Phoneshop</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <div class="container">
+      <h1><%= link_to 'Niony', store_path %></h1>
+      <hr>
+      <h2 class="alt">Site para as Lojas Niony.</h2>
+      <hr>
+      <hr class="space"> <!--- yield ---->
+      
+		<%= yield %>
+
+	  <hr>
+      <h3 class="alt">You may pick and choose amongst these and many more features, so be bold.</h3>
+      <hr>
+      <p>
+		Lorem.....
+      </p>
+    </div>
+
+  </body>
+</html>
