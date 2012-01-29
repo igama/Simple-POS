@@ -1,26 +1,21 @@
 
+	<p id="notice"><%= notice %></p>
+
 <div class="span-5 colborder">
-	<h3>The <span class="alt">brands</span></h3>
+	<h2>The brands</h2>
 	<ul>
-	<% @brands.each do |brand| %>
-		<li> <%= link_to brand.name, brand %></li>
+	<% @brands.each do |otherbrand| %>
+		<li> <%= link_to otherbrand.name, otherbrand %></li>
 	<% end %>
 	</ul>
 </div>
 
 <div class="span-17 prepend-1 last">
 
-	<p id="notice"><%= notice %></p>
+	<%= image_tag(@brand.logo_url, :class => 'top right') %>
 
-	<p>
-	  <b>Name:</b>
-	  <%= @brand.name %> : <%= link_to @brand_url, @brand_url %>
-	</p>
+	<h2> <%= @brand.name %> : <%= link_to @brand_url, @brand_url %> </h2>
 
-	<p>
-	  <b>Logo url:</b>
-	  <%= @brand.logo_url %>
-	</p>
 
 	List of equipments
 	<ul>
@@ -29,7 +24,7 @@
 	<% end %>
 	</ul>
 
-	<%= link_to 'Back', brands_path %>
+	<p><%= link_to 'Back', brands_path %></p>
 
 
 </div>

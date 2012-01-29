@@ -13,6 +13,7 @@ class BrandsController < ApplicationController
   # GET /brands/1
   # GET /brands/1.json
   def show
+    @brands = Brand.all
     @brand = Brand.find(params[:id])
 
     respond_to do |format|

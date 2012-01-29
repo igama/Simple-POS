@@ -1,5 +1,5 @@
 <div class="span-5 colborder">
-	<h3>The <span class="alt">brands</span></h3>
+	<h2>The brands</h2>
 	<ul>
 	<% @brands.each do |brand| %>
 		<li> <%= link_to brand.name, brand %></li>
@@ -8,5 +8,26 @@
 </div>
 
 <div class="span-17 prepend-1 last">
+
+	<div class="product-grid">
+		
+		<% var=1 %> 
+		<% @products.each do |product| %>
+			<% if var > 3 %>
+				<br\>
+				<% var = 1 %>
+			<% end %>	
+		<div>
+			<div class="image"><%= image_tag(product.image_url, :class => 'list_image') %></div>
+			<div class="name"><%= product.name  %></div>
+			<div class="price"><%= number_to_currency(product.price) %><br></div>
+			<div class="cart">
+				Add to Cart
+			</div>
+		</div>
+		<% var +=1 %>
+		<% end %>
+		
+	</div>
 
 </div>
