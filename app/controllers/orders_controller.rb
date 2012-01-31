@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def show
     @order = Order.find(params[:id])
+    @order_items = @order.order_items
 
     respond_to do |format|
       format.html # show.html.erb

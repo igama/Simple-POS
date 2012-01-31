@@ -20,6 +20,30 @@
   <%= @order.pay_type %>
 </p>
 
+<h3>Products</h3>
+
+<!--- TODO: add order_items details ---->
+
+<table>
+	<tr>
+		<th>Product ID</th>
+		<th>Name</th>
+		<th>Condition</th>
+		<th>Unit Price</th>
+		<th>Quantity</th>
+		<th>Total Price</th>
+	</tr>
+	<% @order_items.each do |item| %>
+	<tr>
+		<td><%= item.product_id %></td>
+		<td><%= get_product_name(item.product_id) %></td>
+		<td><%= item.product_condition %></td>
+		<td><%= item.product_price %></td>
+		<td><%= item.quantity %></td>
+		<td><%= item.total_price %></td>
+	</tr>
+	<% end %>
+</table>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>
