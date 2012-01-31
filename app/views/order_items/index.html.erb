@@ -6,6 +6,7 @@
     <th>Product</th>
     <th>Product price</th>
     <th>Product condition</th>
+    <th>Quantity</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,6 +18,7 @@
     <td><%= order_item.product_id %></td>
     <td><%= order_item.product_price %></td>
     <td><%= order_item.product_condition %></td>
+    <td><%= order_item.quantity %></td>
     <td><%= link_to 'Show', order_item %></td>
     <td><%= link_to 'Edit', edit_order_item_path(order_item) %></td>
     <td><%= link_to 'Destroy', order_item, confirm: 'Are you sure?', method: :delete %></td>

@@ -43,7 +43,7 @@ class CartItemsController < ApplicationController
     @cart = current_cart
     product = Product.find(params[:product_id])
     #@cart_item = @cart.cart_items.build(:product => product)
-    @cart_item = @cart.add_product(product.id)
+    @cart_item = @cart.add_product(product.id, product.price)
 
     respond_to do |format|
       if @cart_item.save

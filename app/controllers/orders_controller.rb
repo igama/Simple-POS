@@ -24,6 +24,12 @@ class OrdersController < ApplicationController
   # GET /orders/new
   # GET /orders/new.json
   def new
+    @cart = current_cart
+    if @cart.cart_items.empty?
+      redirect_to store_url, :notice => "Cart is empty"
+      return
+    end
+    
     @order = Order.new
 
     respond_to do |format|
@@ -41,10 +47,14 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(params[:order])
+    @order.add_cart_items_from_cart(current_cart)
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        Cart.destroy(session[:cart_id])
+        session[:cart_id] = nil
+        
+        format.html { redirect_to @order, notice: 'Thank you for your order' }
         format.json { render json: @order, status: :created, location: @order }
       else
         format.html { render action: "new" }
