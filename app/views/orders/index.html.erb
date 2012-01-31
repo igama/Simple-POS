@@ -19,8 +19,7 @@
     <td><%= order.pay_type %></td>
     <td>
 		<%= link_to 'Show', order %><br/>
-    	<%= link_to 'Edit', edit_order_path(order) %><br/>
-    	<%= link_to 'Destroy', order, confirm: 'Are you sure?', method: :delete %>
+    	<%= link_to 'Delete', order, confirm: 'Are you sure?', method: :delete %>
 	</td>
   </tr>
 <% end %>
