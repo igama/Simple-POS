@@ -1,4 +1,8 @@
 Phoneshop::Application.routes.draw do
+  resources :order_items
+
+  resources :orders
+
   resources :cart_items
 
   resources :carts
