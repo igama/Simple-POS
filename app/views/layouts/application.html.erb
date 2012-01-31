@@ -10,22 +10,20 @@
 <body>
 
     <div class="container">
-      <h1><%= link_to 'Niony', store_path %></h1>
+      <h1><%= link_to 'Simples POS', store_path %></h1>
       <hr>
-      <h2 class="alt">Site para as Lojas Niony.</h2>
+      <h2 class="alt">The Simple POS interface.</h2>
       <hr>
       <div class="span-7 colborder">
-        <h6>Here's a box</h6>
-        <p>Lorem ipsum dolor sit amet</p>
+		<div id="cart">
+			<%= render @cart %>
+		</div>
       </div>
-      <div class="span-8 colborder">
+      <div class="span-15 last">
         <h6>And another box</h6>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat laboris nisi ut aliquip.</p>
       </div>
-      <div class="span-7 last">
-        <h6>This box is aligned with the sidebar</h6>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-      </div>
+
       <hr>
       <hr class="space"> <!--- yield ---->
       

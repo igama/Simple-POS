@@ -20,37 +20,6 @@
 	</tr>
 </table>
 
-<% @cart.cart_items.each do |item| %>
-	<%= item.product.name %>
-	<% form_for(item) do |f| %>
-		<%= f.select :product_condition, ['Working', 'Broken'] %>
-		<%= f.submit 'Add to Cart' %>
-	<% end %>
-<% end %>
-
-<p>something</p>
-
-<div class="cart_title" >Your Cart</div>
-<table>
-  <% @cart.cart_items.each do |item| %>
-    <% form_for item do |f| %>
-      <tr>
-        <td>
-        <%= f.submit :value => "Update Qty" %>
-        <%= f.text_field :quantity, :size => 1 %>
-        </td>
-        <td><%= item.product.name %></td>
-        <td class="item_price" ><%= number_to_currency(item.total_price) %></td>
-      </tr>
-    <%  end %>
-  <% end %>
-	<tr class ="total_line">
-		<td></td>
-		<td>Total</td>
-		<td id="total_price"><%= number_to_currency(@cart.total_price)%></td>
-	</tr>
-</table>
-
 <%= button_to 'Empty Cart', @cart, :method => :delete, :confirm => 'Are you sure?' %>
 
 

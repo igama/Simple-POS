@@ -1,0 +1,11 @@
+<div class="cart_title">Cart</div>
+
+<table>
+	<%= render(cart.cart_items) %>
+	<tr class ="total_line">
+		<td></td>
+		<td>Total</td>
+		<td id="total_price"><%= number_to_currency(cart.total_price)%></td>
+		<td></td>
+	</tr>
+</table>

@@ -1,0 +1,6 @@
+	<tr>
+		<td><%= cart_item.quantity %> &times;</td>
+		<td><%= cart_item.product.name %></td>
+		<td class="item_price"><%= number_to_currency(cart_item.total_price) %></td>
+		<td class="delete_item"><%= button_to 'X', cart_item, :method => :delete, :confirm => "Are you sure?" %>
+	</tr>
