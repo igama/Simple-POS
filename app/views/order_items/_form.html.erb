@@ -11,22 +11,29 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :order_id %><br />
-    <%= f.number_field :order_id %>
-  </div>
-  <div class="field">
-    <%= f.label :product_id %><br />
-    <%= f.number_field :product_id %>
-  </div>
-  <div class="field">
-    <%= f.label :product_price %><br />
-    <%= f.text_field :product_price %>
-  </div>
-  <div class="field">
-    <%= f.label :product_condition %><br />
-    <%= f.text_field :product_condition %>
-  </div>
+
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr>
+		<th>Order ID</th>
+		<th>Product ID</th>
+		<th>Product Name</th>
+		<th>Condition</th>
+		<th>Unit Price</th>
+		<th>Quantity</th>
+		
+	</tr>
+	<tr>
+		<td><%= @order_item.order_id %></td>
+		<td><%= @order_item.product_id %></td>
+		<td><%= get_product_name(@order_item.product_id) %></td>
+		<td><%= f.select :product_condition, Product::PRODUCT_CONDITION, :prompt => "Equipment Condition?" %></td>
+		<td><%= f.text_field :product_price %></td>
+		<td><%= f.text_field :quantity %>
+		
+	</tr>
+	
+</table>
+
   <div class="actions">
     <%= f.submit %>
   </div>

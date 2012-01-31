@@ -12,6 +12,7 @@ class Product < ActiveRecord::Base
   #validates :name, :uniqueness => true
   
   CATEGORY_TYPES = [ "Mobile", "Tablet" ]
+  PRODUCT_CONDITION = ["Working", "Broken"]
   
   #Scop
   default_scope :order => 'name'
@@ -22,9 +23,11 @@ class Product < ActiveRecord::Base
     if cart_items.empty?
       return true
     else
-      erros.add(:base, 'Cart Items present')
+      errors.add(:base, 'Cart Items present')
       return false
     end
   end
+  
+  
   
 end

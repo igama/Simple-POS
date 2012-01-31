@@ -3,6 +3,8 @@
 one:
   order: one
   product: one
+  quantity: 1
+  product_condition: MyString
 
 two:
   order_id: 1

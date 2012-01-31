@@ -22,7 +22,7 @@
 
 <h3>Products</h3>
 
-<!--- TODO: add order_items details ---->
+<!--- TODO: Edit inline order details ---->
 
 <table>
 	<tr>
@@ -32,6 +32,7 @@
 		<th>Unit Price</th>
 		<th>Quantity</th>
 		<th>Total Price</th>
+		<th>Action</th>
 	</tr>
 	<% @order_items.each do |item| %>
 	<tr>
@@ -41,6 +42,7 @@
 		<td><%= item.product_price %></td>
 		<td><%= item.quantity %></td>
 		<td><%= item.total_price %></td>
+		<td><%= link_to 'Edit', edit_order_item_path(item) %></td>
 	</tr>
 	<% end %>
 </table>
