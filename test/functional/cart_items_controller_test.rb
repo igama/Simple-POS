@@ -21,7 +21,17 @@ class CartItemsControllerTest < ActionController::TestCase
       post :create, :product_id => products(:one).id
     end
 
-    assert_redirected_to cart_path(assigns(:cart_item).cart)
+    assert_redirected_to store_path
+  end
+  
+  test "should create cart_item via ajax" do 
+    assert_difference('CartItem.count') do
+      xhr :post, :create, :product_id => products(:one).id
+    end
+    assert_response :success
+    assert_select_jquery :html, '#cart' do
+      assert_select 'tr#current_item td', /phone1/
+    end
   end
 
   test "should show cart_item" do
@@ -44,6 +54,6 @@ class CartItemsControllerTest < ActionController::TestCase
       delete :destroy, id: @cart_item.to_param
     end
 
-    assert_redirected_to cart_items_path
+    assert_redirected_to store_path
   end
 end

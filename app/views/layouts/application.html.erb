@@ -15,9 +15,11 @@
       <h2 class="alt">The Simple POS interface.</h2>
       <hr>
       <div class="span-7 colborder">
+	  <% if @cart %>
 		<div id="cart">
 			<%= render @cart %>
 		</div>
+	  <% end %>
       </div>
       <div class="span-15 last">
         <h6>And another box</h6>

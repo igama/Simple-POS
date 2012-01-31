@@ -1,6 +1,6 @@
-<div class="cart_title">Cart</div>
+<h3>Cart</h3>
 
-<table>
+<table class="no-zebra">
 	<%= render(cart.cart_items) %>
 	<tr class ="total_line">
 		<td></td>
@@ -9,3 +9,5 @@
 		<td></td>
 	</tr>
 </table>
+
+<%= button_to 'Empty Cart', @cart, :method => :delete, :confirm => 'Are you sure?' %>

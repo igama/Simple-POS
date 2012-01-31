@@ -1,0 +1,12 @@
+if ($('#cart tr').length == 1) { $('#cart').show('blind', 1000); }
+
+//#START_HIGHLIGHT
+$("#notice").hide();
+
+//jquery
+//$('#cart').html("<%=j render @cart %>");
+$('#cart').html("<%= escape_javascript(render(@cart)) %>");
+
+//#START_HIGHLIGHT
+$('#current_item').css({'background-color':'#88ff88'}).animate({'background-color':'#114411'}, 1000);
+//#END_HIGHLIGHT

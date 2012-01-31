@@ -47,7 +47,8 @@ class CartItemsController < ApplicationController
 
     respond_to do |format|
       if @cart_item.save
-        format.html { redirect_to @cart_item.cart, notice: 'Item added to cart.' }
+        format.html { redirect_to store_url, notice: 'Item added to cart.' }
+        format.js { @current_item = @cart_item }
         format.json { render json: @cart_item, status: :created, location: @cart_item }
       else
         format.html { render action: "new" }
