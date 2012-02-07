@@ -1,20 +1,11 @@
 
-	<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-<div class="span-5 colborder">
-	<h2>The brands</h2>
-	<ul>
-	<% @brands.each do |otherbrand| %>
-		<li> <%= link_to otherbrand.name, otherbrand %></li>
-	<% end %>
-	</ul>
-</div>
-
-<div class="span-17 prepend-1 last">
+<div class="">
 
 	<%= image_tag(@brand.logo_url, :class => 'top right') %>
 
-	<h2> <%= @brand.name %> : <%= link_to @brand_url, @brand_url %> </h2>
+	<h2><%= @brand.name %></h2>
 
 
 	List of equipments

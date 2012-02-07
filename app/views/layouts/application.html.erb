@@ -37,8 +37,8 @@
           <a class="brand" href="#">Phoneshop</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
+                <li><%= link_to "Store", store_url  %></li>
+                <li><%= link_to "Products", products_url  %></li>
                 <li><%= link_to "Link3", "/path3"  %></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -49,14 +49,23 @@
     <div class="container-fluid">
        <div class="row-fluid">
         <div class="span3">
+		 <% if @cart %>
+	      <div class="well sidebar-nav">
+			<div id="cart">
+				<%= render @cart %>
+			</div>
+          </div><!--/.well -->
+		  <% end %>
+		  <% if @brands %>
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li class="nav-header">Brands</li>
+				<% @brands.each do |brand| %>
+				<li> <%= link_to brand.name, brand %></li>
+				<% end %>
             </ul>
           </div><!--/.well -->
+		<% end %>
         </div><!--/span-->
         <div class="span9">
           <% [:notice, :error, :alert].each do |level| %>
