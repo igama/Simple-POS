@@ -1,7 +1,22 @@
 This project project does not pretend to be a Full Point Of Sale. It's target is limited.
 
-Extras:
+There will be 2 ways of accessing the app. short version
 
-CSS: Using blueprintcss.
+General Customers : 
+ - website_url 
+	- Similar to a e-commerce page
+	- User creates account, checkouts out products, choose from 2 available payment methods.
 
+Employees : 
+ - store_url - This will be the Point Of Sale
+ - Add products to cart
+ - Checkout, ask client for details and submit order. 
+ - Generate PDF from order. This will generate login information for client to access website_url.
+ - Order is associated to employee and shop (there can be various shops)
 
+Gems:
+
+gem 'activeadmin'
+gem 'formtastic'
+gem 'devise'
+gem 'twitter-bootstrap-rails'

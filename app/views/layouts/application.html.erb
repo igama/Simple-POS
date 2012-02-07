@@ -37,10 +37,15 @@
           <a class="brand" href="#">Phoneshop</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
+			<% if user_signed_in? %>
                 <li><%= link_to "Store", store_url  %></li>
                 <li><%= link_to "Products", products_url  %></li>
                 <li><%= link_to "Orders", orders_url  %></li>
 				<li><%= link_to "Cart", @cart %></li>
+				 <%= render 'devise/menu/login_items' %>
+			<% else %>
+				<%= render 'devise/menu/login_items' %>
+			<% end %>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
