@@ -11,7 +11,6 @@ gem 'sqlite3'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.1.5'
   gem 'coffee-rails', '~> 3.1.1'
   gem 'uglifier', '>= 1.0.3'
 end
@@ -30,8 +29,19 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+#Active Admin
 gem 'activeadmin'
+gem 'sass-rails'
+gem 'meta_search','>= 1.1.0.pre'
+gem 'formtastic'
+
+#Devise
+gem 'devise'
+
+#BootStrap
 gem 'twitter-bootstrap-rails'
+
+
 
 group :test do
   # Pretty printed test output

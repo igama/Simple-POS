@@ -41,4 +41,20 @@ ActiveAdmin::Dashboards.build do
   # section "Membership Summary", :if => :memberships_enabled?
   # section "Membership Summary", :if => Proc.new { current_admin_user.account.memberships.any? }
 
+  #   section "Recent Posts" do
+  #     ul do
+  #       Post.recent(5).collect do |post|
+  #         li link_to(post.title, admin_post_path(post))
+  #       end
+  #     end
+  #   end
+  
+  section "Recent Orders" do
+    ul do
+      Order.last(10).collect do |order|
+        li link_to(order.id, admin_order_path(order))
+      end
+    end
+  end
+
 end
