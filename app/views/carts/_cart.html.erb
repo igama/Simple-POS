@@ -11,4 +11,4 @@
 </table>
 
 <%= button_to 'Empty Cart', @cart, :method => :delete, :confirm => 'Are you sure?' %>
-<%= button_to 'Checkout', new_order_path, :method => :get %>
+<%= link_to raw('<i class="icon-shopping-cart icon-white"></i> Checkout'), new_order_path, :method => :get, :class => "btn btn-success" %>

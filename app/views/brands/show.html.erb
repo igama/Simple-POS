@@ -1,23 +1,20 @@
-
-<p id="notice"><%= notice %></p>
-
-<div class="">
-
-	<%= image_tag(@brand.logo_url, :class => 'top right') %>
-
-	<h2><%= @brand.name %></h2>
-
-
-	List of equipments
-	<ul>
-	<% @brand.products.each do |product| %>
-	<li><%= link_to product.name, product %></li>
-	<% end %>
-	</ul>
-
-	<p><%= link_to 'Back', brands_path %></p>
-
-
+<div class="page-header">
+	<%= image_tag(@brand.logo_url, :class => 'pull-right') %>
+	<h1><%= @brand.name %></h1>
 </div>
+
+	<legend>List of equipments</legend>
+
+	<div class="product-grid">
+		<% @brand.products.each do |product| %>	
+		<div>
+			<div class="name"><%= link_to product.name, product %></div>
+			<div class="image"><%= link_to(image_tag(product.image_url, :class => 'list_image'), product, :class => "thumbnail") %></div>
+			<div class="price"><%= number_to_currency(product.price) %><br></div>
+			<div class="cart"><%= button_to 'Add to Cart', cart_items_path(:product_id => product), :remote => true, :class => "btn btn-small" %></div>
+		</div>
+		<% end %>
+	</div>
+	<p><%= link_to 'Back', brands_path %></p>
 
 
