@@ -2,6 +2,7 @@ require 'test_helper'
 
 class EmployeeDetailsControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:user1)
     @employee_detail = employee_details(:one)
   end
 
