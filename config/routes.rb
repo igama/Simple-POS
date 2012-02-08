@@ -1,8 +1,17 @@
 Phoneshop::Application.routes.draw do
 
+  resources :employee_details
+
+  resources :shops
+
   ActiveAdmin.routes(self)
   
-  devise_for :users
+  devise_for :user
+  
+  devise_scope :users do
+    resources :employee_details
+  end
+  
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :order_items

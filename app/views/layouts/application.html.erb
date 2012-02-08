@@ -47,7 +47,10 @@
 				<%= render 'devise/menu/login_items' %>
 			<% end %>
             </ul>
-          </div><!--/.nav-collapse -->
+			<ul class="nav pull-right">
+          		<li><%= link_to current_user.email, "/path1" %></li>
+			</ul>
+		  </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>

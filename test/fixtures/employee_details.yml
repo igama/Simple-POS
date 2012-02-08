@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  first_name: MyString
+  last_name: MyString
+  shop_id: 1
+
+two:
+  user_id: 1
+  first_name: MyString
+  last_name: MyString
+  shop_id: 1

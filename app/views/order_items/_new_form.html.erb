@@ -1,0 +1,38 @@
+<%= form_for(@order_item) do |f| %>
+  <% if @order_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order_item.errors.count, "error") %> prohibited this order_item from being saved:</h2>
+
+      <ul>
+      <% @order_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr>
+		<th>Order ID</th>
+		<th>Product ID</th>
+		<th>Condition</th>
+		<th>Unit Price</th>
+		<th>Quantity</th>
+		
+	</tr>
+	<tr>
+		<td><%= @order_item.order_id %></td>
+		<td><%= @order_item.product_id %></td>
+		<td><%= f.select :product_condition, Product::PRODUCT_CONDITION, :prompt => "Equipment Condition?" %></td>
+		<td><%= f.text_field :product_price %></td>
+		<td><%= f.text_field :quantity %>
+		
+	</tr>
+	
+</table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
