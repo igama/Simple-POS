@@ -3,7 +3,8 @@ class BrandsController < ApplicationController
   # GET /brands.json
   def index
     @brands = Brand.all
-
+    @cart = current_cart
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @brands }
@@ -15,7 +16,8 @@ class BrandsController < ApplicationController
   def show
     @brands = Brand.all
     @brand = Brand.find(params[:id])
-
+    @cart = current_cart
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @brand }
