@@ -19,7 +19,7 @@ ActiveAdmin.register User do
       f.semantic_fields_for :employee_detail do |e|
         e.inputs :first_name
         e.inputs :last_name
-        e.inputs :shop_id
+        e.input :shop_id, :as => :select, :collection => Shop.all.map { |s| [s.name, s.id] }
       end  
     end    
     f.buttons
