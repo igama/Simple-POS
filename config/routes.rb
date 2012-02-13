@@ -1,5 +1,7 @@
 Phoneshop::Application.routes.draw do
 
+  get "employee/index"
+
   resources :employee_details
 
   resources :shops
@@ -40,6 +42,8 @@ Phoneshop::Application.routes.draw do
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
+
+  match 'employee/:id' => 'employee#index', :as => :employee
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

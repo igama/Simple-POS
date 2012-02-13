@@ -1,0 +1,15 @@
+<h2>Employee Information</h2>
+<ul>
+	<li> ID : <%= current_user.id %> </li>
+	<li> First Name : <%= current_user.employee_detail.first_name %></li>
+	<li> Last Name : <%= current_user.employee_detail.last_name %></li>
+	<li> Shop Name : <%= current_user.employee_detail.shop.name %></li>
+</ul>
+
+<p>Total Orders</p>
+
+<ul>
+	<li>Total Orders : <%= @orders.count %> - <%= @orders_total_price %> </li>
+	<li>Total this month : TODO </li>
+	
+</ul>

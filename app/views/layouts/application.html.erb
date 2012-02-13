@@ -42,13 +42,17 @@
                 <li><%= link_to "Products", products_url  %></li>
                 <li><%= link_to "Orders", orders_url  %></li>
 				<li><%= link_to "Cart", @cart %></li>
-				 <%= render 'devise/menu/login_items' %>
 			<% else %>
-				<%= render 'devise/menu/login_items' %>
+				<li></li>
 			<% end %>
             </ul>
 			<ul class="nav pull-right">
-          		<li><%= link_to current_user.email, "/path1" %></li>
+			<%if user_signed_in? %>
+          		<li><%= link_to current_user.email, employee_url(current_user.id) %></li>
+				<li><%= render 'devise/menu/login_items' %></li>
+			<% else %>
+				<%= render 'devise/menu/login_items'%>
+			<% end %>
 			</ul>
 		  </div><!--/.nav-collapse -->
         </div>
