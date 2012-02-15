@@ -41,7 +41,11 @@ gem 'devise'
 #BootStrap
 gem 'twitter-bootstrap-rails'
 
+#upload attachments
+gem "paperclip", "~> 2.0"
 
+#Pagination
+gem 'will_paginate', '>= 3.0'
 
 group :test do
   # Pretty printed test output

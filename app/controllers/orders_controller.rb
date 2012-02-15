@@ -2,7 +2,9 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.find_all_by_user_id(current_user.id)
+    #@orders = Order.find_all_by_user_id(current_user.id)
+    @orders = Order.paginate :page=>params[:page], :order=>'created_at desc', :per_page => 10, :conditions => ['user_id = ?', current_user.id]
+
 
     respond_to do |format|
       format.html # index.html.erb

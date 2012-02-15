@@ -1,5 +1,7 @@
 Phoneshop::Application.routes.draw do
 
+  get "top_products/index"
+
   get "employee/index"
 
   resources :employee_details

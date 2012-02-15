@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
   # Relations
   belongs_to :brand
   has_many  :cart_items
+  has_one :product_order_quantity
   
   #check before destroy
   before_destroy :ensure_not_referenced_by_any_cart_item
