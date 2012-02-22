@@ -19,11 +19,26 @@ class Order < ActiveRecord::Base
     cart.cart_items.each do |item|
       item.cart_id = nil
       add_product(item.product_id, item.product_price, item.quantity, item.product_condition)
+      add_product_to_top(item.product_id, item.quantity)
     end
   end
   
   def add_product(product_id, price, quantity, condition)
     current_item = order_items.build(:product_id => product_id, :product_price => price, :quantity => quantity, :product_condition => condition)
+  end
+  
+  def add_product_to_top(id,quantity)    
+      @prod = ProductOrderQuantity.find_by_product_id(id)
+      if @prod != nil
+        puts "Quantity = #{@prod.quantity}"
+        @prod.quantity = @prod.quantity + quantity
+        @prod.save!
+      else
+       @nprod = ProductOrderQuantity.new
+       @nprod.product_id = id
+       @nprod.quantity = quantity
+       @nprod.save!
+      end    
   end
   
 end

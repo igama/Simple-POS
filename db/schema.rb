@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120215183843) do
+ActiveRecord::Schema.define(:version => 20120217093848) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -92,9 +92,9 @@ ActiveRecord::Schema.define(:version => 20120215183843) do
     t.text     "address"
     t.string   "email"
     t.string   "pay_type"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "product_order_quantities", :force => true do |t|
@@ -106,13 +106,17 @@ ActiveRecord::Schema.define(:version => 20120215183843) do
 
   create_table "products", :force => true do |t|
     t.string   "name"
-    t.string   "image_url"
-    t.decimal  "price",      :precision => 8, :scale => 2
-    t.integer  "brand_id",                                 :default => 1
-    t.string   "category",                                 :default => "Mobile"
+    t.decimal  "price",              :precision => 8, :scale => 2
+    t.integer  "brand_id",                                         :default => 1
+    t.string   "category",                                         :default => "Mobile"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "wholesale",  :precision => 8, :scale => 2
+    t.decimal  "wholesale",          :precision => 8, :scale => 2
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "reference"
   end
 
   create_table "shops", :force => true do |t|

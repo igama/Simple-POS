@@ -2,8 +2,15 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    #@products = Product.all
-    @products = Product.paginate :page=>params[:page], :order=>'created_at desc', :per_page => 20
+    
+    #<%= link_to( 'Edit', edit_product_path(product) ) %><br/>
+  	#<%= link_to( 'Destroy', product, confirm: 'Are you sure?', method: :delete) %><br/>
+    
+    @products = Product.last(10)
+    @pindex = true
+    #@products = Product.paginate :page=>params[:page], :order=>'created_at desc', :per_page => 20
+    @cart = current_cart
+    @brands = Brand.all
     
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +22,8 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
+    @cart = current_cart
+    @brands = Brand.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -41,7 +50,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    @product = Product.new(params[:product])
+    @product = Product.create(params[:product])
 
     respond_to do |format|
       if @product.save

@@ -4,7 +4,7 @@ class StoreController < ApplicationController
   def index
     @products = Product.all
     @brands = Brand.all
-    @products = ProductOrderQuantity.where("quantity > ?", 20).limit(10).order("quantity DESC")
+    @products = ProductOrderQuantity.where("quantity > ?", 2).limit(10).order("quantity DESC")
     @cart = current_cart
   end
 

@@ -6,15 +6,18 @@
 	<legend>List of equipments</legend>
 
 	<div class="product-grid">
-		<% @brand.products.each do |product| %>	
+		<% @products.each do |product| %>	
 		<div>
 			<div class="name"><%= link_to product.name, product %></div>
-			<div class="image"><%= link_to(image_tag(product.image_url, :class => 'list_image'), product, :class => "thumbnail") %></div>
+			<div class="image"><%= link_to(image_tag(product.image.url(:thumb), :class => 'list_image'), product, :class => "thumbnail") %></div>
 			<div class="price"><%= number_to_currency(product.price) %><br></div>
 			<div class="cart"><%= button_to 'Add to Cart', cart_items_path(:product_id => product), :remote => true, :class => "btn btn-small" %></div>
 		</div>
 		<% end %>
 	</div>
+	
+	<%= paginate @products %>
+	
 	<p><%= link_to 'Back', brands_path %></p>
 
 

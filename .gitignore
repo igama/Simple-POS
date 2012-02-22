@@ -14,3 +14,5 @@
 /log/*.log
 /tmp
 /app/assets/images/phones
+/public/system
+/oldgit/

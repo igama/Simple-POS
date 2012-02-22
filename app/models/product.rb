@@ -1,8 +1,19 @@
 class Product < ActiveRecord::Base
+  #attr_accessor :image_file_name
+  #attr_accessor :image_content_type
+  #attr_accessor :image_file_size
+  #attr_accessor :image_updated_at
+  #image = Product.new(:image => File.open('/path/to/my/image.png', rb))
+  
+  
   # Relations
   belongs_to :brand
   has_many  :cart_items
   has_one :product_order_quantity
+
+  has_attached_file :image, 
+    :styles => {
+      :thumb => "70x70" }
   
   #check before destroy
   before_destroy :ensure_not_referenced_by_any_cart_item
@@ -17,6 +28,24 @@ class Product < ActiveRecord::Base
   
   #Scop
   default_scope :order => 'name'
+  
+  def self.search_old(search)
+    if search
+      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
+  
+  def self.search(search)
+    if search
+      #where('name LIKE ? or name LIKE ?', "%iphone%", "%16gb%")
+      where(search)
+    else
+      all
+    end
+  end
+  
   
   private
   

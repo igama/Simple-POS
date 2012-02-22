@@ -1,30 +1,26 @@
 
 
-<p>
-  <b>Name:</b>
-  <%= @product.name %>
-</p>
+<h2><legend><%= @product.name %></legend></h2>
 
-<p>
-  <b>Image url:</b>
-  <%= @product.image_url %>
-</p>
+<div class="row">
+      <div class="span3">
+		<%= image_tag @product.image.url %>
+	  </div>
 
-<p>
-  <b>Price:</b>
-  <%= @product.price %>
-</p>
+      <div class="span3 well pull-right">
+		<p><strong><%= @product.brand.name %></strong></p>
+		<p><b>Category:</b> <%= @product.category %></p>
+      </div>
+</div>
+<div class="row">
+  <div class="span3">
+	<hr>
+    <p><b>Price:</b> <%= @product.price %></p>
+    <div class="cart"><%= button_to 'Add to Cart', cart_items_path(:product_id => @product), :remote => true, :class => "btn btn-small" %></div>
+  </div>
 
-<p>
-  <b>Brand:</b>
-  <%= @product.brand_id %>
-</p>
 
-<p>
-  <b>Category:</b>
-  <%= @product.category %>
-</p>
-
+</div>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<%= link_to 'Back', brand_path(@product.brand) %>

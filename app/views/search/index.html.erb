@@ -1,0 +1,14 @@
+<%= form_for search_index_url, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+<% if @products %>
+<ul>
+	<% @products.each do |product| %>
+		<li><%= link_to product.name, product %> - <%= product.price %></li>
+	<% end %>
+</ul>
+<% end %>	

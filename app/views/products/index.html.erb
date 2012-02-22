@@ -1,6 +1,9 @@
 <div class="">
 
-	<h3>Listing products</h3>
+	<h3>Latest Products</h3>
+
+	<%= link_to 'New Product', new_product_path, :class => "btn btn-primary" %><br/>
+
 
 	<div id="product_list">
 
@@ -11,22 +14,17 @@
 	    <th>Price</th>
 	    <th>Brand</th>
 	    <th>Category</th>
-	    <th>Actions</th>
 	    <th></th>
 	    <th></th>
 	  </tr>
 
 	<% @products.each do |product| %>
 	  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
-		<td><%= image_tag(product.image_url, :class => 'list_image') %></td>    
+		<td><%= link_to(image_tag(product.image.url, :class => 'list_image'),product) %></td>    
 		<td><%= product.name %></td>
 	    <td><%= product.price %></td>
 	    <td><%= product.brand_id %></td>
 	    <td><%= product.category %></td>
-	    <td  class="list_actions">
-			<%= link_to 'Show', product %><br/>
-	    	<%= link_to 'Edit', edit_product_path(product) %><br/>
-	    	<%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %><br/>
 	  </tr>
 	<% end %>
 	</table>
@@ -35,6 +33,5 @@
 
 	</div>
 
-	<%= link_to 'New Product', new_product_path %>
 
 </div>
