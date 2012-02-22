@@ -16,7 +16,10 @@
   <div class="span3">
 	<hr>
     <p><b>Price:</b> <%= @product.price %></p>
-    <div class="cart"><%= button_to 'Add to Cart', cart_items_path(:product_id => @product), :remote => true, :class => "btn btn-small" %></div>
+
+    <div class="cart"><%= button_to 'Working', cart_items_path(:product_id => @product, :product_condition => "Working"), :remote => true, :class => "btn btn-small" %></div> <div class="cart"><%= button_to 'Broken', cart_items_path(:product_id => @product, :product_condition => "Broken"), :remote => true, :class => "btn btn-small" %></div>
+  
+
   </div>
 
 

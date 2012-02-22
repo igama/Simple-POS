@@ -3,8 +3,8 @@
 <% else %> 
 	<tr>
 <% end %>
-		<td><%= cart_item.quantity %> &times;</td>
-		<td><%= cart_item.product.name %></td>
+		<td><%= cart_item.quantity %>&times;</td>
+		<td><%= truncate(cart_item.product.name, :length => 30) %> <%= cart_item.product_condition %></td>
 		<td class="item_price"><%= number_to_currency(cart_item.total_price) %></td>
-		<td class="delete_item"><%= link_to raw('<i class="icon-trash"></i>'), cart_item, :method => :delete, :confirm => "Are you sure?" %>
+		<td class="delete_item"><%= link_to raw(' <i class="icon-trash"></i>'), cart_item, :method => :delete, :confirm => "Are you sure?" %>
 	</tr>

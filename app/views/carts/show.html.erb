@@ -1,16 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<div class="cart_title">Cart</div>
+<legend>Cart</legend>
 
 <!--- TODO: Edit Cart details ---->
 
 <table>
   <% @cart.cart_items.each do |item| %>
 	<tr>
-		<td><%= item.quantity %> &times;</td>
+		<td><%= item.quantity %> &times; </td>
 		<td><%= item.product.name %></td>
+		<td><%= item.product_condition %></td>
 		<td class="item_price"><%= number_to_currency(item.total_price) %></td>
-		<td class="delete_item"><%= button_to 'Delete Line', item, :method => :delete, :confirm => "Are you sure?" %>
+		<td class="delete_item"><%= link_to raw(' <i class="icon-trash"></i>'), item, :method => :delete, :confirm => "Are you sure?" %>
 	</tr>
   <% end %>
 	<tr class ="total_line">

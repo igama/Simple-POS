@@ -1,5 +1,7 @@
 Phoneshop::Application.routes.draw do
 
+  get "search/index"
+
   get "top_products/index"
 
   get "employee/index"

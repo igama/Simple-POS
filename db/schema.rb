@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(:version => 20120217093848) do
     t.string   "product_condition"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "quantity",          :default => 1
+    t.integer  "quantity",  :default => 1
   end
 
   create_table "carts", :force => true do |t|
