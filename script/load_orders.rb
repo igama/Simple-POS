@@ -9,7 +9,8 @@ Order.transaction do
     product = Product.find_by_id(1)
     @ad.order_items.build(:order_id => @ad.id, :product_id => product.id, :product_price => product.price, :quantity => 1, :product_condition => "Working")
     product = Product.find_by_id(10)
-    @ad.order_items.build(:order_id => @ad.id, :product_id => product.id, :product_price => product.price, :quantity => 3, :product_condition => "Working")
+    @ad.order_items.build(:order_id => @ad.id, :product_id => product.id, :product_price => product.price, :quantity => 3, :product_condition => "Broken")
+    @ad.order_items.build(:order_id => @ad.id, :product_id => product.id, :product_price => product.price, :quantity => 1, :product_condition => "Working")
     product = Product.find_by_id(30)
     @ad.order_items.build(:order_id => @ad.id, :product_id => product.id, :product_price => product.price, :quantity => 2, :product_condition => "Working")
     product = Product.find_by_id(42)
@@ -25,7 +26,7 @@ Order.transaction do
     @ad.pay_type = "Cash"
     @ad.user_id = 1
     product = Product.find_by_id(2)
-    @ad.order_items.build(:order_id => @ad.id, :product_id => product.id, :product_price => product.price, :quantity => 1, :product_condition => "Working")
+    @ad.order_items.build(:order_id => @ad.id, :product_id => product.id, :product_price => product.price, :quantity => 1, :product_condition => "Broken")
     product = Product.find_by_id(31)
     @ad.order_items.build(:order_id => @ad.id, :product_id => product.id, :product_price => product.price, :quantity => 1, :product_condition => "Working")
     @ad.save!
@@ -43,7 +44,7 @@ Order.transaction do
     product = Product.find_by_id(14)
     @ad.order_items.build(:order_id => @ad.id, :product_id => product.id, :product_price => product.price, :quantity => 3, :product_condition => "Working")
     product = Product.find_by_id(32)
-    @ad.order_items.build(:order_id => @ad.id, :product_id => product.id, :product_price => product.price, :quantity => 2, :product_condition => "Working")
+    @ad.order_items.build(:order_id => @ad.id, :product_id => product.id, :product_price => product.price, :quantity => 2, :product_condition => "Broken")
     product = Product.find_by_id(22)
     @ad.order_items.build(:order_id => @ad.id, :product_id => product.id, :product_price => product.price, :quantity => 1, :product_condition => "Working")
     @ad.save!

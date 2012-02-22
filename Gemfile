@@ -45,7 +45,7 @@ gem 'twitter-bootstrap-rails'
 gem "paperclip", "~> 2.0"
 
 #Pagination
-gem 'will_paginate', '>= 3.0'
+gem 'will_paginate', '3.0.pre2'
 
 group :test do
   # Pretty printed test output

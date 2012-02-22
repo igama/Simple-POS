@@ -1,11 +1,8 @@
-This project project does not pretend to be a Full Point Of Sale. It's target is limited.
+This project project does not pretend to be a Full Point Of Sale. It's target is limited. It's based on a real need, and I'm developing it as a way to learn Rails.
 
-There will be 2 ways of accessing the app. short version
-
-General Customers : 
- - website_url 
-	- Similar to a e-commerce page
-	- User creates account, checkouts out products, choose from 2 available payment methods.
+There will be 2 ways of accessing the app. 
+ - Customer URL - Not Started
+ - Employee URL - In Progress
 
 Employees : 
  - store_url - This will be the Point Of Sale
@@ -20,3 +17,5 @@ gem 'activeadmin'
 gem 'formtastic'
 gem 'devise'
 gem 'twitter-bootstrap-rails'
+gem 'paperclip'
+gem 'will-paginate'

@@ -1,5 +1,13 @@
 ActiveAdmin.register Order do
   
+  scope :all, :default => true
+  scope :last_week do |orders|
+      orders.where('created_at < ? and created_at > ?', Time.now, 1.week.ago)
+  end
+
+  filter :user, :as => :select, :collection => User.all.map { |u| [u.email, u.id] }
+  filter :created_at
+
   show do |order|
     attributes_table do
       row :id

@@ -4,7 +4,7 @@ class Order < ActiveRecord::Base
   
   PAYMENT_TYPES = ["Cash", "Check", "Paypal"]
   
-  validates :name, :address, :email, :pay_type, :presence => true
+  validates :name, :address, :pay_type, :presence => true
   validates :pay_type, :inclusion => PAYMENT_TYPES
   
   def total_price

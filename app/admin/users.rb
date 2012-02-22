@@ -2,33 +2,33 @@ ActiveAdmin.register User do
   
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "User Details", :multipart => true do
-      f.inputs :email
-      f.inputs :password
-      f.inputs :password_confirmation
+      f.input :email
+      f.input :password
+      f.input :password_confirmation
     end
     
     f.inputs "Details" do
       f.semantic_fields_for :employee_detail do |e|
-        e.inputs :first_name
-        e.inputs :last_name
-        e.input :shop_id, :as => :select, :collection => Shop.all.map { |s| [s.name, s.id] }
+        e.inputs :first_name, :last_name, :name => "employee"
+        #e.inputs :shop_id, :as => :select, :collection => Shop.all, :label_method => :name, :value_method => :id
+        e.inputs :shop, :as => :select, :collection => Shop.all.map { |s| [s.name, s.id] }
       end  
     end    
     f.buttons
   end
 
-  index do
-    column :email
-    column :current_sign_in_at
-    column :last_sign_in_at
-    column :sign_in_count
+  index do |t|
+    t.column("email") { |user| user.email}
+    t.column("name") {|user| user.employee_detail.first_name }
+    t.column("Shop") { |user| user.employee_detail.shop_id }
+    t.column("Last Login") { |user| user.last_sign_in_at}
+    t.column("Sign in Count") {|user| user.sign_in_count}
     default_actions
   end
 
-    show do |use|
+    show do |user|
       attributes_table do
         row :email
-        row("status") { use.employee_detail.shop.name }
         row :sign_in_count
         row :last_sign_in_at
         row :created_at
@@ -36,7 +36,7 @@ ActiveAdmin.register User do
       end #end user details
       
       panel "Orders Details" do
-        table_for use.orders.all do |t|
+        table_for user.orders.all do |t|
           t.column("Order ID") { |order| link_to order.id, admin_order_path(order) }
           t.column("Total Price") { |order| order.total_price }
           t.column("Created At") { |order| order.created_at}
