@@ -1,10 +1,11 @@
-<p id="notice"><%= notice %></p>
+<h2>Order Report</h2>
 
-<h3>Customer Information</h3>
+<p>Order #<%= @order.id %> - <%= @order.created_at %></p>
+
+
 
 <div class="row">
-	
-	<div class="span4">
+	<div class="span3">
 		<p>
 		  <b>Name:</b>
 		  <%= @order.name %>
@@ -16,35 +17,19 @@
 		</p>
 
 		<p>
-		  <b>Email:</b>
-		  <%= @order.email %>
-		</p>
-
-		<p>
 		  <b>Pay type:</b>
 		  <%= @order.pay_type %>
 		</p>
 	</div>
-	
-	<div class="span4 pull-right">
-	
-<%= link_to "Generate Order Report", order_report_path, :method => :generate, :class => "btn btn-success pull-right" %>
-	
-	</div>
-	
-	
 </div>
 
-
-<p><%= link_to 'Edit Information', edit_order_path(@order) %></p>
 
 <hr>
 
 <h3>Products</h3>
 
-<!--- TODO: Edit inline order details ---->
-
 <table class="table table-striped">
+	<thead>
 	<tr>
 		<th>Product ID</th>
 		<th>Name</th>
@@ -52,8 +37,9 @@
 		<th>Unit Price</th>
 		<th>Quantity</th>
 		<th>Total Price</th>
-		<th>Action</th>
 	</tr>
+	</thead>
+	<tbody>
 	<% @order_items.each do |item| %>
 	<tr>
 		<td><%= item.product_id %></td>
@@ -62,11 +48,10 @@
 		<td><%= item.product_price %></td>
 		<td><%= item.quantity %></td>
 		<td><%= item.total_price %></td>
-		<td><%= link_to 'Edit', edit_order_item_path(item) %></td>
 	</tr>
 	<% end %>
+	</tbody>
 </table>
 
-<%= link_to 'Back', orders_path,:class => "btn btn-primary" %>
 
-</br>
+<br/>

@@ -1,5 +1,7 @@
 Phoneshop::Application.routes.draw do
 
+  get "order_report/generate"
+
   get "search/index"
 
   get "top_products/index"
@@ -48,6 +50,8 @@ Phoneshop::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   match 'employee/:id' => 'employee#index', :as => :employee
+  
+  match 'order_report/:id' => 'order_report#generate', :as => :order_report
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

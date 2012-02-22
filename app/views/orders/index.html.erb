@@ -1,6 +1,6 @@
-<h1>Listing orders</h1>
+<legend>Listing orders</legend>
 
-<table>
+<table class="table table-striped">
   <tr>
 	<th>Order ID</th>
     <th>Name</th>
@@ -18,7 +18,7 @@
     <td><%= order.email %></td>
     <td><%= order.pay_type %></td>
     <td>
-		<%= link_to 'Show', order %><br/>
+		<%= link_to raw('<i class="icon-folder-open"></i> Show'), order %><br/>
     	<%= link_to 'Delete', order, confirm: 'Are you sure?', method: :delete %>
 	</td>
   </tr>
@@ -27,5 +27,4 @@
 
 <br />
 
-<%= link_to 'New Order', new_order_path %>
 <p><%= will_paginate @orders %></p>
