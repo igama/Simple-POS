@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(:version => 20120217093848) do
     t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "shop_id", :default => 1
+    t.integer  "shop_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -92,9 +92,9 @@ ActiveRecord::Schema.define(:version => 20120217093848) do
     t.text     "address"
     t.string   "email"
     t.string   "pay_type"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "product_order_quantities", :force => true do |t|

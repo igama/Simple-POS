@@ -5,7 +5,7 @@ ActiveAdmin.register Order do
       orders.where('created_at < ? and created_at > ?', Time.now, 1.week.ago)
   end
 
-  filter :user, :as => :select, :collection => User.all.map { |u| [u.email, u.id] }
+  #filter :user, :as => :select, :collection => User.all.map { |u| [u.email, u.id] }
   filter :created_at
 
   show do |order|
@@ -17,7 +17,7 @@ ActiveAdmin.register Order do
       row :pay_type
       row :created_at
       row :updated_at
-      row :user
+      #row :user
     end
     
     panel "Products" do 
