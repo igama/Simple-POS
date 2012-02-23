@@ -1,39 +1,49 @@
-<%= form_for @product, :html => { :multipart => true } do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
 
-      <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="control-group">
+   <%= f.label :name, t("activerecord.attributes.product.name", :default => "Name"), :class => "control-label" %>
+  <div class="input">
+    <%= f.text_field :name, :class => 'text_field' %>
+  </div>
+</div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+<div class="control-group">
+   <%= f.label :price, t("activerecord.attributes.product.price", :default => "Price"), :class => "control-label" %>
+  <div class="input">
+    <%= f.text_field :price, :class => 'text_field' %>
   </div>
-  <div class="field">
-    <%= f.label :price %><br />
-    <%= f.text_field :price %>
+</div>
+
+<div class="control-group">
+   <%= f.label :wholesale, t("activerecord.attributes.product.wholesale", :default => "Wholesale"), :class => "control-label" %>
+  <div class="input">
+    <%= f.text_field :wholesale, :class => 'text_field' %>
   </div>
-  <div class="field">
-    <%= f.label :brand_id %><br />
-	<%= f.select :brand_id, Brand.all.map { |b| [b.name, b.id] } %>
+</div>
+
+<div class="control-group">
+   <%= f.label :brand_id, t("activerecord.attributes.product.brand_id", :default => "Brand"), :class => "control-label" %>
+  <div class="input">
+    <%= f.select :brand_id, Brand.all.map { |b| [b.name, b.id] }  %>
   </div>
-  <div class="field">
-    <%= f.label :category %><br />
-    <%= f.select :category, Product::CATEGORY_TYPES,
- 					:prompt => 'Select category of equipment'%>
+</div>
+
+<div class="control-group">
+   <%= f.label :category, t("activerecord.attributes.product.category", :default => "Category"), :class => "control-label" %>
+  <div class="input">
+    <%= f.select :category, Product::CATEGORY_TYPES, :prompt => 'Select category of equipment' %>
   </div>
-  <div class="field">
-    Product Image<br />
+</div>
+
+<div class="control-group">
+   <%= f.label :image, t("activerecord.attributes.product.image", :default => "Image"), :class => "control-label" %>
+  <div class="input">
     <%= f.file_field :image %>
   </div>
+</div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+
+<div class="form-actions">
+  <button class="btn btn-primary" type="submit">Save</button> or
+	<%= link_to "Cancel", products_path, :class=> "btn btn-danger" %>
+</div>

@@ -1,19 +1,19 @@
 <div class="">
 
-	<h3>Latest Products</h3>
+	<h3><%= t("product.index.latest", :default => "Lastest Products") %></h3>
 
-	<%= link_to 'New Product', new_product_path, :class => "btn btn-primary" %><br/>
+	<p><%= link_to 'New Product', new_product_path, :class => "btn btn-primary" %></p>
 
 
 	<div id="product_list">
 
-	<table>
+	<table class="table table-condensed">
 	  <tr>
-	    <th>Image</th>
-	    <th>Name</th>
-	    <th>Price</th>
-	    <th>Brand</th>
-	    <th>Category</th>
+	    <th><%= t("product.image", :default => "Image") %></th>
+	    <th><%= t("product.name", :default => "Name") %></th>
+	    <th><%= t("product.price", :default => "Price") %></th>
+	    <th><%= t("product.brand", :default => "Brand") %></th>
+	    <th><%= t("product.category", :default => "Category") %></th>
 	    <th></th>
 	    <th></th>
 	  </tr>
@@ -21,9 +21,9 @@
 	<% @products.each do |product| %>
 	  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
 		<td><%= link_to(image_tag(product.image.url, :class => 'list_image'),product) %></td>    
-		<td><%= product.name %></td>
+		<td><%= link_to product.name, product %></td>
 	    <td><%= product.price %></td>
-	    <td><%= product.brand_id %></td>
+	    <td><%= link_to product.brand.name, product.brand %></td>
 	    <td><%= product.category %></td>
 	  </tr>
 	<% end %>

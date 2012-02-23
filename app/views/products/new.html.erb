@@ -1,5 +1,3 @@
-<h3>New product</h3>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', products_path %>
+<%= form_for @product, :url => products_path, :html => { :class => :form } do |f| -%>
+  <%= render :partial => "form", :locals => {:f => f} %>
+<% end -%>
