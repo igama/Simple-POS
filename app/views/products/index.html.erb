@@ -1,8 +1,8 @@
 <div class="">
 
-	<h3><%= t("product.index.latest", :default => "Lastest Products") %></h3>
+	<h3><%= t('.latestproduct', :default => "Lastest Products") %></h3>
 
-	<p><%= link_to 'New Product', new_product_path, :class => "btn btn-primary" %></p>
+	<p><%= link_to t('.new_product'), new_product_path, :class => "btn btn-primary" %></p>
 
 
 	<div id="product_list">

@@ -1,6 +1,6 @@
 
 
-<h2>Top Products</h2>
+<h2><%= t('.top_products') %></h2>
 
 <div class="product-grid">
 	<% @products.each do |top| %>	
@@ -8,7 +8,7 @@
 		<div class="name"><%= link_to top.product.name, top.product  %></div>
 		<div class="image"><%= link_to(image_tag(top.product.image.url, :class => 'list_image'), top.product, :class => "thumbnail") %></div>
 		<div class="price"><%= number_to_currency(top.product.price) %><br></div>
-		<div class="cart"><%= button_to 'Add to Cart', cart_items_path(:product_id => top.product, :product_condition => "Working"), :remote => true, :class => "btn btn-small" %></div>
+		<div class="cart"><%= button_to t('cart.add_to_cart'), cart_items_path(:product_id => top.product, :product_condition => "Working"), :remote => true, :class => "btn btn-small" %></div>
 	</div>
 	<% end %>
 </div>

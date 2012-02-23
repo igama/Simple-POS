@@ -2,4 +2,28 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  layouts: 
+    application:
+      code: "string"
+
+  products:
+    index:
+      latestproduct: "Latest Products"
+      new_product: "New Product"
+
+  store:
+    index:
+      top_products: "Top Products"
+
+
+#Products
+  product:
+      image: "Image"
+      name: "Name"
+      price: "Price"
+      brand: "Brand"
+      category: "Category"
+
+  cart:
+    add_to_cart: "Add To Cart"
+    empty_cart: "Empty Cart"

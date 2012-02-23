@@ -1,0 +1,26 @@
+#pt.yml
+
+"pt-PT":
+  layouts: 
+    application:
+      code: "string"
+
+  products:
+    index:
+      latestproduct: "Últimos Produtos"
+      new_product: "Novo Produto"
+
+  store:
+    index:
+      top_products: "Mais Vendidos"
+
+  product:
+      image: "Imagem"
+      name: "Nome"
+      price: "Preço"
+      brand: "Marca"
+      category: "Categoria"
+
+  cart:
+    add_to_cart: "Adicionar ao Pedido"
+    empty_cart: "Esvaziar"
