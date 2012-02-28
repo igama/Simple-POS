@@ -7,18 +7,22 @@
 	<div class="span4">
 		<p>
 		  <b>Name:</b>
-		  <%= @order.name %>
+		  <%= @order.customer.name %>
 		</p>
 
 		<p>
 		  <b>Address:</b>
-		  <%= @order.address %>
+		  <%= @order.customer.address %>
 		</p>
 
-		
+		<p>
+		  <b>Address:</b>
+		  <%= @order.customer.phone %>
+		</p>
+
 		<p>
 		  <b>Email:</b>
-		  <%= @order.email.blank? ? " " : @order.email %>
+		  <%= @order.customer.email.blank? ? " " : @order.customer.email %>
 		</p>
 
 		<p>

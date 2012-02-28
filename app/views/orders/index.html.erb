@@ -4,19 +4,19 @@
   <tr>
 	<th>Order ID</th>
     <th>Name</th>
-    <th>Address</th>
-    <th>Email</th>
-    <th>Pay type</th>
+    <th>Pay Type</th>
+    <th>Total Items</th>
+    <th>Total Value</th>
     <th>Actions</th>
   </tr>
 
 <% @orders.each do |order| %>
   <tr>
 	<td><%= order.id %></td>
-    <td><%= order.name %></td>
-    <td><%= order.address %></td>
-    <td><%= order.email %></td>
+    <td><%= order.customer.name %></td>
     <td><%= order.pay_type %></td>
+    <td><%= order.total_items %></td>
+    <td><%= order.total_price %></td>
     <td>
 		<%= link_to raw('<i class="icon-folder-open"></i> Show'), order %><br/>
     	<%= link_to 'Delete', order, confirm: 'Are you sure?', method: :delete %>

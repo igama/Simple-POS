@@ -11,24 +11,42 @@
     </div>
   <% end %>
 
-  <div class="control-group">
-    <div class="control-label">
-      <%= f.label :name %>
+  <%= f.fields_for :customer do |c| %>  
+    <div class="control-group">
+      <div class="control-label">
+        <%= c.label :name %>
+      </div>
+      <%= c.text_field :name, :size => 40, :class=> "input-xlarge" %>
     </div>
-    <%= f.text_field :name, :size => 40, :class=> "input-xlarge" %>
-  </div>
-  <div class="control-group">
-    <div class="control-label">
-      <%= f.label :address %>
+    <div class="control-group">
+      <div class="control-label">
+        <%= c.label :address %>
+      </div>
+      <%= c.text_area :address, :rows =>4, :cols => 40, :class=> "input-xlarge" %>
     </div>
-    <%= f.text_area :address, :rows =>4, :cols => 40, :class=> "input-xlarge" %>
-  </div>
-  <div class="control-group">
-    <div class="control-label">
-      <%= f.label :email %>
-    </div>
-    <%= f.text_field :email, :size => 40, :class=> "input-xlarge" %>
-  </div>
+      <div class="control-group">
+      <div class="control-label">
+        <%= c.label :postcode %>
+      </div>
+      <%= c.text_field :postcode, :size => 30, :class=> "input-large" %>
+    </div> 
+
+    <div class="control-group">
+      <div class="control-label">
+        <%= c.label :phone %>
+      </div>
+      <%= c.text_field :phone, :size => 15, :class=> "input-large" %>
+    </div> 
+
+    <div class="control-group">
+      <div class="control-label">
+        <%= c.label :email %>
+      </div>
+      <%= c.text_field :email, :size => 50, :class=> "input-xlarge" %>
+    </div> 
+  <% end %>
+
+
   <div class="control-group">
     <div class="control-label">
       <%= f.label :pay_type %> <%= f.select :pay_type, Order::PAYMENT_TYPES, :prompt => 'Select payment method' %>

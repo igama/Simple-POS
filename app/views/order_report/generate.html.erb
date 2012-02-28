@@ -8,12 +8,27 @@
 	<div class="span3">
 		<p>
 		  <b>Name:</b>
-		  <%= @order.name %>
+		  <%= @order.customer.name %>
 		</p>
 
 		<p>
 		  <b>Address:</b>
-		  <%= @order.address %>
+		  <%= @order.customer.address %>
+		</p>
+
+		<p>
+		  <b>Post-Code:</b>
+		  <%= @order.customer.postcode %>
+		</p>
+
+		<p>
+		  <b>Phone:</b>
+		  <%= @order.customer.phone %>
+		</p>
+
+		<p>
+		  <b>Email:</b>
+		  <%= @order.customer.email %>
 		</p>
 
 		<p>

@@ -1,12 +1,18 @@
 class Order < ActiveRecord::Base
   has_many :order_items, :dependent => :destroy
+  has_one :customer, :dependent => :destroy
   belongs_to :user
   
   PAYMENT_TYPES = ["Cash", "Check", "Paypal"]
   
-  validates :name, :address, :pay_type, :presence => true
+  validates :pay_type, :presence => true
   validates :pay_type, :inclusion => PAYMENT_TYPES
+  accepts_nested_attributes_for :customer
   
+  after_initialize do 
+    self.customer ||= self.build_customer()
+  end
+
   def total_price
     order_items.to_a.sum { |item| item.total_price }
   end
