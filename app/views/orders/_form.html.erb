@@ -14,33 +14,33 @@
   <%= f.fields_for :customer do |c| %>  
     <div class="control-group">
       <div class="control-label">
-        <%= c.label :name %>
+        <%= c.label t('.name') %>
       </div>
       <%= c.text_field :name, :size => 40, :class=> "input-xlarge" %>
     </div>
     <div class="control-group">
       <div class="control-label">
-        <%= c.label :address %>
+        <%= c.label t('.address') %>
       </div>
       <%= c.text_area :address, :rows =>4, :cols => 40, :class=> "input-xlarge" %>
     </div>
       <div class="control-group">
       <div class="control-label">
-        <%= c.label :postcode %>
+        <%= c.label t('.postcode') %>
       </div>
       <%= c.text_field :postcode, :size => 30, :class=> "input-large" %>
     </div> 
 
     <div class="control-group">
       <div class="control-label">
-        <%= c.label :phone %>
+        <%= c.label t('.phone') %>
       </div>
       <%= c.text_field :phone, :size => 15, :class=> "input-large" %>
     </div> 
 
     <div class="control-group">
       <div class="control-label">
-        <%= c.label :email %>
+        <%= c.label t('.email') %>
       </div>
       <%= c.text_field :email, :size => 50, :class=> "input-xlarge" %>
     </div> 
@@ -49,10 +49,10 @@
 
   <div class="control-group">
     <div class="control-label">
-      <%= f.label :pay_type %> <%= f.select :pay_type, Order::PAYMENT_TYPES, :prompt => 'Select payment method' %>
+      <%= f.label t('.pay_type') %> <%= f.select :pay_type, Order::PAYMENT_TYPES, :prompt => 'Select payment method' %>
     </div>
   </div>
   <div class="actions">
-    <%= f.submit 'Place Order', :class=>"btn btn-success" %>
+    <%= f.submit t('.PlaceOrder'), :class=>"btn btn-success" %>
   </div>
 <% end %>

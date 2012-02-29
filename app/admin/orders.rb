@@ -5,31 +5,29 @@ ActiveAdmin.register Order do
       orders.where('created_at < ? and created_at > ?', Time.now, 1.week.ago)
   end
 
-  #filter :user, :as => :select, :collection => User.all.map { |u| [u.email, u.id] }
-  filter :created_at
+  index do
+    column :id
+    column "Total Items" do |order|
+      order.total_items
+    end
+    column "Total Price" do |order|
+      order.total_price
+    end
+    column "Shop" do |order|
+      order.user.employee_detail.shop.name
+    end
+    column "Employee" do |order|
+      order.user.employee_detail.first_name
+    end
+    column :created_at
+    default_actions
+  end
+
+  #filter :created_at
 
   show do |order|
-    attributes_table do
-      row :id
-      row :name
-      row :address
-      row :email
-      row :pay_type
-      row :created_at
-      row :updated_at
-      #row :user
-    end
-    
-    panel "Products" do 
-      table_for  order.order_items.all do |t|
-        t.column("Product") { |t| t.product.name }
-        t.column("Condition") {|t| t.product_condition }
-        t.column("Price") { |t| t.product_price }
-        t.column("Quantity") { |t| t.quantity }
-        t.column("Total Price") { |t| t.total_price }
-      end
-    end
 
+    render :partial => "info", :locals => {:order => order}
         
   end #end show
   

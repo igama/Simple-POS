@@ -1,29 +1,28 @@
 
 
-<h2><legend><%= @product.name %></legend></h2>
+<h2><legend><%= link_to @product.brand.name, brand_path(@product.brand) %> / <%= @product.name %></legend></h2>
 
 <div class="row">
-      <div class="span3">
-		<%= image_tag @product.image.url %>
+    <div class="span3">
+		  <%= image_tag @product.image.url %>
 	  </div>
 
-      <div class="span3 well pull-right">
-		<p><strong><%= @product.brand.name %></strong></p>
-		<p><b>Category:</b> <%= @product.category %></p>
+    <div class="span3">
+      <div class="well">
+      <p><b><%= t('product.price') %>:</b> <%= @product.price %></p> 
+        <p><b><%= t('product.condition') %></b></p>
+        <%= button_to t('product.working'), cart_items_path(:product_id => @product, :product_condition => "Working"), :remote => true, :class => "btn btn-small" %> <%= button_to t('product.broken'), cart_items_path(:product_id => @product, :product_condition => "Broken"), :remote => true, :class => "btn btn-small" %>
       </div>
-</div>
-<div class="row">
-  <div class="span3">
-	<hr>
-    <p><b>Price:</b> <%= @product.price %></p>
+    </div>
 
-    <div class="cart"><%= button_to 'Working', cart_items_path(:product_id => @product, :product_condition => "Working"), :remote => true, :class => "btn btn-small" %></div> <div class="cart"><%= button_to 'Broken', cart_items_path(:product_id => @product, :product_condition => "Broken"), :remote => true, :class => "btn btn-small" %></div>
-  
-
-  </div>
-
+    <div class="span3 well">
+		  <p><strong><%= @product.brand.name %></strong></p>
+		  <p><b><%= t('product.category') %>:</b> <%= @product.category %></p>
+    </div>
 
 </div>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', brand_path(@product.brand) %>
+</br>
+
+<%= link_to t('main.back'), brand_path(@product.brand), :class => "btn btn-primary" %> | 
+<%= link_to t('main.edit'), edit_product_path(@product), :class => "btn" %>

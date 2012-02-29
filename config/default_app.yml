@@ -1,0 +1,17 @@
+#app config
+
+#App.main[:subkey]
+development:
+  main:
+    name: "value Name"
+    address: "value Address"
+    phoneNumber: "Value PhoneNumber"
+
+test:
+  key: <%= 1 + 2 %>
+
+production:
+  main:
+    name: "value Name"
+    address: "value Address"
+    phoneNumber: "Value PhoneNumber"

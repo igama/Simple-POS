@@ -1,42 +1,42 @@
-<p id="notice"><%= notice %></p>
+<h3><%= t('order.order_info')%></h3>
 
-<h3>Customer Information</h3>
+  <div class="pull-right">
+    <%= link_to "Generate Order Report", order_report_path, :method => :generate, :class => "btn btn-success pull-right" %>
+	</div>
+	
+<hr>
 
 <div class="row">
 	
 	<div class="span4">
 		<p>
-		  <b>Name:</b>
+		  <b><%= t('order.name') %>:</b>
 		  <%= @order.customer.name %>
 		</p>
 
 		<p>
-		  <b>Address:</b>
+		  <b><%= t('order.address') %>:</b>
 		  <%= @order.customer.address %>
+		  <%= @order.customer.postcode %>
 		</p>
 
 		<p>
-		  <b>Address:</b>
+		  <b><%= t('order.phone') %>:</b>
 		  <%= @order.customer.phone %>
 		</p>
 
 		<p>
-		  <b>Email:</b>
+		  <b><%= t('order.email') %>:</b>
 		  <%= @order.customer.email.blank? ? " " : @order.customer.email %>
 		</p>
 
 		<p>
-		  <b>Pay type:</b>
+		  <b><%= t('order.pay_type') %>:</b>
 		  <%= @order.pay_type %>
 		</p>
 	</div>
 	
-	<div class="span4 pull-right">
-	
-<%= link_to "Generate Order Report", order_report_path, :method => :generate, :class => "btn btn-success pull-right" %>
-	
-	</div>
-	
+
 	
 </div>
 

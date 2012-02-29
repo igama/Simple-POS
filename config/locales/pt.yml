@@ -3,24 +3,80 @@
 "pt-PT":
   layouts: 
     application:
-      code: "string"
+      store: "Loja"
+      products: "Produtos"
+      cart: "Compra Actual"
+      orders: "Compras"
+      UserAccount: "Conta do Utilizador"
 
   products:
     index:
       latestproduct: "Últimos Produtos"
       new_product: "Novo Produto"
+      new_brand: "Nova Marca"
+
+  brands:
+    new:
+      newbrand: "Nova Marca"
+    index:
+      listOfBrands: "Lista de Marcas"
+    form:
+      logo: "Logotípo"
+
+  orders:
+    new:
+      neworder: "Novo Pedido"
+      please_enter_the_detail: "Por favor insira os dados do cliente"
+    form:
+      name: "Nome"
+      address: "Morada"
+      phone: "Telefone/Telemóvel"
+      email: "E-mail"
+      pay_type: "Mêtodo de Pagamento"
+      postcode: "Código Postal"
+      PlaceOrder: "Finalizar Pedido"
+
+  order:
+    name: "Nome"
+    address: "Morada"
+    phone: "Telefone/Telemóvel"
+    email: "E-mail"
+    pay_type: "Mêtodo de Pagamento"
+    postcode: "Código Postal"
+    order_info: "Dados do Pedido"
+    totalprice: "Total"
+    order: "Pedido"
 
   store:
     index:
       top_products: "Mais Vendidos"
 
   product:
-      image: "Imagem"
-      name: "Nome"
-      price: "Preço"
-      brand: "Marca"
-      category: "Categoria"
+    image: "Imagem"
+    name: "Nome"
+    price: "Preço"
+    brand: "Marca"
+    quantity: "Quantidade"
+    category: "Categoria"
+    condition: "Estado do Equipamento"
+    working: "Funciona"
+    broken: "Avariado"
+    unitprice: "Preço por Unidade"
+    productID: "ID"
+    products: "Produtos"
 
   cart:
     add_to_cart: "Adicionar ao Pedido"
     empty_cart: "Esvaziar"
+    cart: "Pedido"
+    removeLine: "Remover"
+
+  main:
+    edit: "Editar"
+    back: "Voltar"
+    name: "Nome"
+    actions: "Acções"
+    Are_you_sure: "Tem a certeza?"
+    logout: "Terminar Sessão"
+    login: "Iniciar Sessão"
+

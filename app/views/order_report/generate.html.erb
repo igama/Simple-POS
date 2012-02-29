@@ -1,57 +1,67 @@
-<h2>Order Report</h2>
-
-<p>Order #<%= @order.id %> - <%= @order.created_at %></p>
-
-
-
 <div class="row">
 	<div class="span3">
-		<p>
-		  <b>Name:</b>
-		  <%= @order.customer.name %>
-		</p>
+		<img src="/images/logo.jpeg">
+	</div>
 
-		<p>
-		  <b>Address:</b>
-		  <%= @order.customer.address %>
-		</p>
-
-		<p>
-		  <b>Post-Code:</b>
-		  <%= @order.customer.postcode %>
-		</p>
-
-		<p>
-		  <b>Phone:</b>
-		  <%= @order.customer.phone %>
-		</p>
-
-		<p>
-		  <b>Email:</b>
-		  <%= @order.customer.email %>
-		</p>
-
-		<p>
-		  <b>Pay type:</b>
-		  <%= @order.pay_type %>
-		</p>
+	<div class="span4 pull-right">
+		<br/>
+		<h3><%= t('order.order') %> #<%= @order.id %> - <%= @order.created_at %></h3>
 	</div>
 </div>
 
 
 <hr>
 
-<h3>Products</h3>
+<div class="row">
+	<div class="span4">
+		<p>
+		  <b><%= t('order.name') %>:</b>
+		  <%= @order.customer.name %>
+		</p>
 
-<table class="table table-striped">
+		<p>
+		  <b><%= t('order.address') %>:</b></br>
+		  <%= @order.customer.address %></br>
+		  <%= @order.customer.postcode %>
+		</p>
+
+		<p>
+		  <b><%= t('order.phone') %>:</b>
+		  <%= @order.customer.phone %>
+		</p>
+
+		<p>
+		  <b><%= t('order.email') %>:</b>
+		  <%= @order.customer.email.blank? ? " " : @order.customer.email %>
+		</p>
+
+		<p>
+		  <b><%= t('order.pay_type') %>:</b>
+		  <%= @order.pay_type %>
+		</p>
+	</div>
+
+	<div class ="span2 pull-right">
+
+
+	</div>
+
+</div>
+
+
+<hr>
+
+<h3><%= t('product.products')%></h3>
+
+<table class="table table-condensed">
 	<thead>
 	<tr>
-		<th>Product ID</th>
-		<th>Name</th>
-		<th>Condition</th>
-		<th>Unit Price</th>
-		<th>Quantity</th>
-		<th>Total Price</th>
+		<th><%= t('product.productID')%></th>
+		<th><%= t('product.name')%></th>
+		<th><%= t('product.condition')%></th>
+		<th><%= t('product.unitprice')%></th>
+		<th><%= t('product.quantity')%></th>
+		<th><%= t('order.totalprice')%></th>
 	</tr>
 	</thead>
 	<tbody>
@@ -59,11 +69,21 @@
 	<tr>
 		<td><%= item.product_id %></td>
 		<td><%= get_product_name(item.product_id) %></td>
-		<td><%= item.product_condition %></td>
+		<td><%= item.product_condition == "Working" ? t('product.working') : t('product.broken') %></td>
 		<td><%= item.product_price %></td>
 		<td><%= item.quantity %></td>
 		<td><%= item.total_price %></td>
 	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td><b><%= t('order.totalprice')%></b></td>
+		<td id="total_price"><b><%= number_to_currency(@order.total_price)%></b></td>
+	</tr>
+
+
 	<% end %>
 	</tbody>
 </table>

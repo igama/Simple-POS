@@ -10,12 +10,15 @@ ActiveAdmin.register_page "Report" do
     end
 
     content do
-      @something = "hello marco"
+      @orders = Order.all
+      @something = params[:id]
+      #@orders.order_items.each do |order_item|
+
+      #end
+
       render :partial => "test", :locals => {:something => @something}
 
-      #panel "Hello World" do
-      #  "Why so easy?"
-      #end
+
     end
 
 end

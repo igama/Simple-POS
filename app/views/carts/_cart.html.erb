@@ -1,4 +1,4 @@
-<h3>Cart</h3>
+<h3><%= t('cart.cart')%></h3>
 
 <table class="table table-striped table-condensed">
 	<%= render(cart.cart_items) %>
@@ -10,5 +10,5 @@
 	</tr>
 </table>
 
-<%= button_to t('cart.empty_cart'), @cart, :method => :delete, :confirm => 'Are you sure?' %>
+<%= button_to t('cart.empty_cart'), @cart, :method => :delete, :confirm => 'Are you sure?', :class => "btn" %>
 <%= link_to raw('<i class="icon-shopping-cart icon-white"></i> Checkout'), new_order_path, :method => :get, :class => "btn btn-success" %>

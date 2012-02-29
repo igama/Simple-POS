@@ -1,4 +1,10 @@
 <%= form_for @product, :url => product_path(@product), :html => { :class => "edit_product", :id => "edit_product" } do |f| -%>
   <input name="_method" type="hidden" value="put" />
   <%= render :partial => "form", :locals => {:f => f} %>
+
+<div class="form-actions">
+  <button class="btn btn-primary" type="submit">Save</button> or
+	<%= link_to "Cancel", product_path(@product), :class=> "btn btn-danger" %>
+</div>
+
 <% end -%>

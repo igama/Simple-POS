@@ -1,11 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<legend>Cart</legend>
+<legend><%= t('cart.cart')%></legend>
 
 <!--- TODO: Edit Cart details ---->
 
-<table>
+<table class="table table-striped table-condensed">
   <% @cart.cart_items.each do |item| %>
+  <tr>
+  	<th><%= t('product.quantity') %></th>
+  	<th><%= t('product.name') %></th>
+  	<th><%= t('product.condition') %></th>
+  	<th><%= t('product.price') %></th>
+  	<th><%= t('cart.removeLine') %></th>
+  </tr>
 	<tr>
 		<td><%= item.quantity %> &times; </td>
 		<td><%= item.product.name %></td>
@@ -15,7 +22,7 @@
 	</tr>
   <% end %>
 	<tr class ="total_line">
-		
+		<td></td>
 		<td></td>
 		<td>Total</td>
 		<td id="total_price"><%= number_to_currency(@cart.total_price)%></td>
@@ -23,7 +30,7 @@
 	</tr>
 </table>
 
-<%= button_to 'Empty Cart', @cart, :method => :delete, :confirm => 'Are you sure?' %>
+<%= button_to t('cart.empty_cart'), @cart, :method => :delete, :confirm => 'Are you sure?', :class => "btn btn-danger" %>
 
 
-<%= link_to 'Back', store_path %>
+<%= link_to t('main.back'), store_path, :class => "btn btn-primary" %>

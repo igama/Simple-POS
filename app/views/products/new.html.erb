@@ -1,3 +1,9 @@
 <%= form_for @product, :url => products_path, :html => { :class => :form } do |f| -%>
   <%= render :partial => "form", :locals => {:f => f} %>
+
+<div class="form-actions">
+  <button class="btn btn-primary" type="submit">Save</button> or
+	<%= link_to "Cancel", products_path, :class=> "btn btn-danger" %>
+</div>
+
 <% end -%>

@@ -1,22 +1,21 @@
-<h1>Listing brands</h1>
+<h1><%= t('.listOfBrands') %></h1>
 
 <div id="brand_list">
 
-<table>
+<table class="table table-striped table-condensed">
   <tr>
-    <th>Logo</th>
-    <th>Name</th>
-    <th>Actions</th>
+    <th><%= t('.logo') %></th>
+    <th><%= t('main.name') %></th>
+    <th><%= t('main.actions') %></th>
   </tr>
 
 <% @brands.each do |brand| %>
   <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
-	<td><%= image_tag(brand.logo_url, :class => 'list_image') %></td>
+	<td><%= link_to image_tag(brand.logo_url, :class => 'list_image'), brand_path(brand) %></td>
     <td><%= brand.name %></td>
     <td class="list_actions">
-		<%= link_to 'Show', brand %><br/>
-    	<%= link_to 'Edit', edit_brand_path(brand) %><br/>
-    	<%= link_to 'Destroy', brand, confirm: 'Are you sure?', method: :delete %>
+		<%= link_to t('Show'), brand %><br/>
+    <%= link_to t('Edit'), edit_brand_path(brand) %>
 	</td>
   </tr>
 <% end %>
@@ -26,4 +25,4 @@
 
 </div>
 
-<%= link_to 'New Brand', new_brand_path %>
+<%= link_to t('brands.new.newbrand'), new_brand_path, :class => "btn btn-primary" %>
