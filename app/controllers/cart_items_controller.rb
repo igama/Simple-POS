@@ -1,4 +1,6 @@
 class CartItemsController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /cart_items
   # GET /cart_items.json
   def index

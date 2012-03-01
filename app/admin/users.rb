@@ -1,5 +1,6 @@
 ActiveAdmin.register User do
-  
+  menu :parent => "_Manage Users"
+
   form :html => { :enctype => "multipart/form-data" } do |f|
     f.inputs "User Details", :multipart => true do
       f.input :email
@@ -18,8 +19,8 @@ ActiveAdmin.register User do
   end
 
   index do |t|
-    t.column("email") { |user| user.email}
-    t.column("name") {|user| user.employee_detail.first_name }
+    t.column("Username") { |user| user.email}
+    t.column("Name") {|user| user.employee_detail.first_name + " " + user.employee_detail.last_name }
     t.column("Shop") { |user| user.employee_detail.shop_id }
     t.column("Last Login") { |user| user.last_sign_in_at}
     t.column("Sign in Count") {|user| user.sign_in_count}
@@ -42,7 +43,7 @@ ActiveAdmin.register User do
           t.column("Created At") { |order| order.created_at}
         end  
       end #end Order details
-
+      active_admin_comments
     end #end show
   
 sidebar "stats ", :only => :show do  

@@ -6,13 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Brand.delete_all
-Product.delete_all
-Cart.delete_all
-CartItem.delete_all
-
-
-Brand.create(
-  :name => 'no-brand',
-  :logo_url => ''
-)
+Shop.create(name: "Main")

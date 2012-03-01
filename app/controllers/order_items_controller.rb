@@ -1,4 +1,5 @@
 class OrderItemsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /order_items
   # GET /order_items.json
   def index

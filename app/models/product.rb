@@ -21,10 +21,10 @@ class Product < ActiveRecord::Base
   # Validations
   validates :name, :price, :presence => true
   validates :price, :numericality => {:greater_than_or_equal_to => 0.00}
-  #validates :name, :uniqueness => true
+  validates :name, :uniqueness => true
   
   CATEGORY_TYPES = [ "Mobile", "Tablet" ]
-  PRODUCT_CONDITION = ["Working", "Broken"]
+  PRODUCT_CONDITION = ["Good", "Bad"]
   
   #Scop
   default_scope :order => 'name'

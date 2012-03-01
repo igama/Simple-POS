@@ -57,8 +57,8 @@ pt-PT:
     quantity: "Quantidade"
     category: "Categoria"
     condition: "Estado do Equipamento"
-    working: "Funciona"
-    broken: "Avariado"
+    good: "Funciona"
+    bad: "Avariado"
     unitprice: "Preço por Unidade"
     productID: "ID"
     products: "Produtos"
@@ -79,6 +79,12 @@ pt-PT:
     login: "Iniciar Sessão"
 
   activerecord:
+    models:
+      brand: "Marca"
+      product: "Produto"
+      order: "Compras"
+      user: "Utilizador"
+      shop: "Loja"
     attributes:
       product:
         image: "Imagem"
@@ -86,3 +92,6 @@ pt-PT:
         price: "Preço"
         brand_id: "Marca"
         wholesale: "Preço Mercado"
+      brand:
+        name: "Nome"
+        image: "Logotípo"

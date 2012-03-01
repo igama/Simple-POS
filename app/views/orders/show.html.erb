@@ -1,7 +1,7 @@
 <h3><%= t('order.order_info')%></h3>
 
   <div class="pull-right">
-    <%= link_to "Generate Order Report", order_report_path(@order.id, :format => :pdf), :method => :generate, :class => "btn btn-success pull-right" %>
+    <%= link_to "Generate Order Report", order_report_path(@order.id, :format => :pdf), :method => :generate, :class => "btn btn-success pull-right", :target => "_blank" %>
 	</div>
 	
 <hr>

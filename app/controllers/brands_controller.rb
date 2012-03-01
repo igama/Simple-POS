@@ -1,4 +1,6 @@
 class BrandsController < ApplicationController
+  before_filter :authenticate_user!
+  
   # GET /brands
   # GET /brands.json
   def index

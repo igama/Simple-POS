@@ -13,10 +13,10 @@
         <p><b><%= t('product.condition') %></b></p>
           <div class="row">
             <div class="span4">
-              <%= button_to t('product.working'), cart_items_path(:product_id => @product, :product_condition => "Working"), :remote => true, :class => "btn btn-small" %>
+              <%= button_to t('product.good'), cart_items_path(:product_id => @product, :product_condition => "Good"), :remote => true, :class => "btn btn-small" %>
             </div>
             <div class="span2">
-              <%= button_to t('product.broken'), cart_items_path(:product_id => @product, :product_condition => "Broken"), :remote => true, :class => "btn btn-small" %>
+              <%= button_to t('product.bad'), cart_items_path(:product_id => @product, :product_condition => "Bad"), :remote => true, :class => "btn btn-small" %>
             </div>
           </div>
       </div>

@@ -1,4 +1,5 @@
 class OrderReportController < ApplicationController
+  before_filter :authenticate_user!
   # GET /order_report/1
   # GET /order_report/1.json
   def generate

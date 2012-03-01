@@ -48,7 +48,10 @@ ActiveRecord::Schema.define(:version => 20120228100809) do
 
   create_table "brands", :force => true do |t|
     t.string   "name"
-    t.string   "logo_url"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

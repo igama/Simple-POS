@@ -11,7 +11,7 @@
 
 <% @brands.each do |brand| %>
   <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
-	<td><%= link_to image_tag(brand.logo_url, :class => 'list_image'), brand_path(brand) %></td>
+	<td><%= link_to image_tag(brand.logo.url(:thumb), :class => 'list_image'), brand_path(brand) %></td>
     <td><%= brand.name %></td>
     <td class="list_actions">
 		<%= link_to t('Show'), brand %><br/>

@@ -93,7 +93,7 @@
 	<tr>
 		<td><%= item.product_id %></td>
 		<td><%= get_product_name(item.product_id) %></td>
-		<td><%= item.product_condition == "Working" ? t('product.working') : t('product.broken') %></td>
+		<td><%= item.product_condition == "Good" ? t('product.good') : t('product.bad') %></td>
 		<td><%= number_to_currency(item.product_price) %></td>
 		<td><%= item.quantity %></td>
 		<td><%= number_to_currency(item.total_price) %></td>
