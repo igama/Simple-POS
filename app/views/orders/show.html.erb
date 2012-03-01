@@ -1,7 +1,7 @@
 <h3><%= t('order.order_info')%></h3>
 
   <div class="pull-right">
-    <%= link_to "Generate Order Report", order_report_path, :method => :generate, :class => "btn btn-success pull-right" %>
+    <%= link_to "Generate Order Report", order_report_path(@order.id, :format => :pdf), :method => :generate, :class => "btn btn-success pull-right" %>
 	</div>
 	
 <hr>
@@ -16,7 +16,7 @@
 
 		<p>
 		  <b><%= t('order.address') %>:</b>
-		  <%= @order.customer.address %>
+		  <%= @order.customer.address %><br />
 		  <%= @order.customer.postcode %>
 		</p>
 
@@ -64,9 +64,9 @@
 		<td><%= item.product_id %></td>
 		<td><%= get_product_name(item.product_id) %></td>
 		<td><%= item.product_condition %></td>
-		<td><%= item.product_price %></td>
+		<td><%= number_to_currency(item.product_price) %></td>
 		<td><%= item.quantity %></td>
-		<td><%= item.total_price %></td>
+		<td><%= number_to_currency(item.total_price) %></td>
 		<td><%= link_to 'Edit', edit_order_item_path(item) %></td>
 	</tr>
 	<% end %>

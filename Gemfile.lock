@@ -168,6 +168,7 @@ GEM
       multi_json (>= 1.0.2)
     warden (1.1.1)
       rack (>= 1.0)
+    wicked_pdf (0.7.5)
     will_paginate (3.0.pre2)
 
 PLATFORMS
@@ -188,4 +189,5 @@ DEPENDENCIES
   turn (~> 0.8.3)
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)
+  wicked_pdf
   will_paginate (= 3.0.pre2)

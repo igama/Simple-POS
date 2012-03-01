@@ -5,6 +5,13 @@ class OrderReportController < ApplicationController
     @order = Order.find(params[:id])
     @order_items = @order.order_items
     
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => "Niony-#{@order.id}"
+      end
+    end
+    
   end
 
 end

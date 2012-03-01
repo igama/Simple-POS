@@ -9,9 +9,16 @@
 
     <div class="span3">
       <div class="well">
-      <p><b><%= t('product.price') %>:</b> <%= @product.price %></p> 
+      <p><b><%= t('product.price') %>:</b> <%= number_to_currency(@product.price) %></p> 
         <p><b><%= t('product.condition') %></b></p>
-        <%= button_to t('product.working'), cart_items_path(:product_id => @product, :product_condition => "Working"), :remote => true, :class => "btn btn-small" %> <%= button_to t('product.broken'), cart_items_path(:product_id => @product, :product_condition => "Broken"), :remote => true, :class => "btn btn-small" %>
+          <div class="row">
+            <div class="span4">
+              <%= button_to t('product.working'), cart_items_path(:product_id => @product, :product_condition => "Working"), :remote => true, :class => "btn btn-small" %>
+            </div>
+            <div class="span2">
+              <%= button_to t('product.broken'), cart_items_path(:product_id => @product, :product_condition => "Broken"), :remote => true, :class => "btn btn-small" %>
+            </div>
+          </div>
       </div>
     </div>
 

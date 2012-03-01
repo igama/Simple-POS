@@ -1,3 +1,14 @@
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 <div class="control-group">
    <%= f.label :name, t("activerecord.attributes.product.name", :default => "Name"), :class => "control-label" %>
@@ -7,7 +18,7 @@
 </div>
 
 <div class="control-group">
-   <%= f.label :price, t("activerecord.attributes.product.price", :default => "Price"), :class => "control-label" %>
+   <%= f.label :price, t("activerecord.attributes.product.price", :default => "Price"), :class => "control-label" %> (NN.NN)
   <div class="input">
     <%= f.text_field :price, :class => 'text_field' %>
   </div>

@@ -50,6 +50,9 @@ gem 'will_paginate', '3.0.pre2'
 #i18n
 gem 'rails-i18n'
 
+#pdf
+gem 'wicked_pdf'
+
 group :test do
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false

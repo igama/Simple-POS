@@ -1,6 +1,4 @@
-#pt.yml
-
-"pt-PT":
+pt-PT:
   layouts: 
     application:
       store: "Loja"
@@ -80,3 +78,11 @@
     logout: "Terminar Sessão"
     login: "Iniciar Sessão"
 
+  activerecord:
+    attributes:
+      product:
+        image: "Imagem"
+        name: "Nome"
+        price: "Preço"
+        brand_id: "Marca"
+        wholesale: "Preço Mercado"

@@ -1,6 +1,6 @@
 # European Portuguese translations for devise
 
-"pt-PT":
+pt-PT:
   errors:
     messages:
       expired: "expirou, por favor solicite um novo"

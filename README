@@ -19,3 +19,19 @@ gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'paperclip'
 gem 'will-paginate'
+
+#i18n
+gem 'rails-i18n'
+
+#pdf
+gem 'wicked_pdf'
+
+In Mac : 
+
+curl -O http://wkhtmltopdf.googlecode.com/files/wkhtmltopdf-0.9.9-OS-X.i368
+mv wkhtmltopdf-0.9.9-OS-X.i368 /usr/local/bin/wkhtmltopdf
+chmod +x /usr/local/bin/wkhtmltopdf
+
+Linux : 
+
+apt-get install wkhtmltopdf

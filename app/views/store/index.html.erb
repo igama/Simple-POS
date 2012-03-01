@@ -5,10 +5,19 @@
 <div class="product-grid">
 	<% @products.each do |top| %>	
 	<div>
-		<div class="name"><%= link_to top.product.name, top.product  %></div>
+		<div class="name"><%= link_to truncate(top.product.name, :length => 30), top.product  %></div>
 		<div class="image"><%= link_to(image_tag(top.product.image.url, :class => 'list_image'), top.product, :class => "thumbnail") %></div>
 		<div class="price"><%= number_to_currency(top.product.price) %><br></div>
-		<div class="cart"><%= button_to t('cart.add_to_cart'), cart_items_path(:product_id => top.product, :product_condition => "Working"), :remote => true, :class => "btn btn-small" %></div>
+		<div class="cart">
+        <div class="row">
+          <div class="span3">
+            <%= button_to "100%", cart_items_path(:product_id => top.product, :product_condition => "Working"), :remote => true, :class => "btn btn-small" %>
+          </div>
+          <div class="span1">
+            <%= button_to "50%", cart_items_path(:product_id => top.product, :product_condition => "Broken"), :remote => true, :class => "btn btn-small" %>
+          </div>
+        </div>
+			</div>
 	</div>
 	<% end %>
 </div>

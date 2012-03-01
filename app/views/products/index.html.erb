@@ -23,7 +23,7 @@
 	  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>"> 
 		<td><%= link_to(image_tag(product.image.url, :class => 'list_image'),product) %></td>    
 		<td><%= link_to product.name, product %></td>
-	    <td><%= product.price %></td>
+	    <td><%= number_to_currency(product.price) %></td>
 	    <td><%= link_to product.brand.name, product.brand %></td>
 	    <td><%= product.category %></td>
 	  </tr>
