@@ -10,10 +10,10 @@
 		<div class="price"><%= number_to_currency(top.product.price) %><br></div>
 		<div class="cart">
         <div class="row">
-          <div class="span3">
+          <div class="span0">
             <%= button_to "100%", cart_items_path(:product_id => top.product, :product_condition => "Good"), :remote => true, :class => "btn btn-small" %>
           </div>
-          <div class="span1">
+          <div class="span0">
             <%= button_to "50%", cart_items_path(:product_id => top.product, :product_condition => "Bad"), :remote => true, :class => "btn btn-small" %>
           </div>
         </div>

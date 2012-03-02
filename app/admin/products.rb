@@ -20,12 +20,14 @@ ActiveAdmin.register Product do
     column :name
     column :brand
     column :price
+    column :wholesale
     default_actions
   end
 
   filter :brand
   filter :name
   filter :price
+  filter :wholesale
   filter :created_at
 
   show do
@@ -35,6 +37,7 @@ ActiveAdmin.register Product do
       row :brand
       row :price
       row :wholesale
+      row :reference
       row "Image" do |product|
         image_tag product.image
       end

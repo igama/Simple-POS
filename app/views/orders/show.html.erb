@@ -1,7 +1,7 @@
 <h3><%= t('order.order_info')%></h3>
 
   <div class="pull-right">
-    <%= link_to "Generate Order Report", order_report_path(@order.id, :format => :pdf), :method => :generate, :class => "btn btn-success pull-right", :target => "_blank" %>
+    <%= link_to t('order.generate_report'), order_report_path(@order.id, :format => :pdf), :method => :generate, :class => "btn btn-success pull-right", :target => "_blank" %>
 	</div>
 	
 <hr>
@@ -32,7 +32,7 @@
 
 		<p>
 		  <b><%= t('order.pay_type') %>:</b>
-		  <%= @order.pay_type %>
+		  <%= t("order.payment_types.#{@order.pay_type}") %>
 		</p>
 	</div>
 	
@@ -41,29 +41,29 @@
 </div>
 
 
-<p><%= link_to 'Edit Information', edit_order_path(@order) %></p>
+<p><%= link_to t('main.edit_information'), edit_order_path(@order) %></p>
 
 <hr>
 
-<h3>Products</h3>
+<h3><%= t('product.products') %></h3>
 
 <!--- TODO: Edit inline order details ---->
 
 <table class="table table-striped">
 	<tr>
-		<th>Product ID</th>
-		<th>Name</th>
-		<th>Condition</th>
-		<th>Unit Price</th>
-		<th>Quantity</th>
-		<th>Total Price</th>
-		<th>Action</th>
+		<th>ID</th>
+		<th><%= t('product.name') %></th>
+		<th><%= t('product.condition') %></th>
+		<th><%= t('product.unitprice') %></th>
+		<th><%= t('product.quantity') %></th>
+		<th><%= t('order.total') %></th>
+		<th><%= t('main.actions') %></th>
 	</tr>
 	<% @order_items.each do |item| %>
 	<tr>
 		<td><%= item.product_id %></td>
 		<td><%= get_product_name(item.product_id) %></td>
-		<td><%= item.product_condition %></td>
+		<td><%= t("product.#{item.product_condition}") %></td>
 		<td><%= number_to_currency(item.product_price) %></td>
 		<td><%= item.quantity %></td>
 		<td><%= number_to_currency(item.total_price) %></td>

@@ -59,7 +59,7 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         
-        format.html { redirect_to @order, notice: 'Thank you for your order' }
+        format.html { redirect_to @order, notice: t('order.thank_you') }
         format.json { render json: @order, status: :created, location: @order }
       else
         format.html { render action: "new" }

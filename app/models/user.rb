@@ -4,14 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :employee_detail_attributes
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :shop_id
   
   has_many :orders
-  has_one :employee_detail
-  accepts_nested_attributes_for :employee_detail
-  
-  after_initialize do 
-    self.employee_detail ||= self.build_employee_detail()
-  end
-  
+  belongs_to :shop
+    
 end

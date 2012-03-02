@@ -6,6 +6,7 @@ pt-PT:
       cart: "Compra Actual"
       orders: "Compras"
       UserAccount: "Conta do Utilizador"
+      brands: "Marcas"
 
   products:
     index:
@@ -39,11 +40,19 @@ pt-PT:
     address: "Morada"
     phone: "Telefone/Telemóvel"
     email: "E-mail"
-    pay_type: "Mêtodo de Pagamento"
+    pay_type: "Método de Pagamento"
     postcode: "Código Postal"
     order_info: "Dados do Pedido"
     totalprice: "Total"
+    total_items: "Itens"
+    total_price: "Preço Total"
     order: "Pedido"
+    select_payment_type: "Escolher:"
+    payment_types:
+      cash: "Dinheiro"
+      paypal: "Paypal"
+    thank_you: "Pedido Realizado - Comprovativo pode ser impresso."
+    generate_report: "Gerar Comprovativo"
 
   store:
     index:
@@ -57,8 +66,8 @@ pt-PT:
     quantity: "Quantidade"
     category: "Categoria"
     condition: "Estado do Equipamento"
-    good: "Funciona"
-    bad: "Avariado"
+    Good: "Funciona"
+    Bad: "Mau estado"
     unitprice: "Preço por Unidade"
     productID: "ID"
     products: "Produtos"
@@ -68,6 +77,8 @@ pt-PT:
     empty_cart: "Esvaziar"
     cart: "Pedido"
     removeLine: "Remover"
+    updated: "Pedido actualizado"
+    empty: "Pedido foi limpo"
 
   main:
     edit: "Editar"
@@ -77,6 +88,7 @@ pt-PT:
     Are_you_sure: "Tem a certeza?"
     logout: "Terminar Sessão"
     login: "Iniciar Sessão"
+    edit_information: "Editar dados"
 
   activerecord:
     models:
@@ -85,6 +97,7 @@ pt-PT:
       order: "Compras"
       user: "Utilizador"
       shop: "Loja"
+      cart: "Pedido"
     attributes:
       product:
         image: "Imagem"
@@ -95,3 +108,7 @@ pt-PT:
       brand:
         name: "Nome"
         image: "Logotípo"
+
+  error:
+    order:
+      msg: ": não foi possível finalizar o pedido."

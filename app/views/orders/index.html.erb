@@ -1,26 +1,26 @@
 <legend>Listing orders</legend>
 
-<table class="table table-striped">
+<table class="table table-striped table-condensed">
   <tr>
-	<th>Order ID</th>
-    <th>Name</th>
-    <th>Pay Type</th>
-    <th>Total Items</th>
-    <th>Total Value</th>
-    <th>Actions</th>
+    <th>ID</th>
+    <th><%= t('order.name')%></th>
+    <th><%= t('order.pay_type')%></th>
+    <th><%= t('order.total_items')%></th>
+    <th><%= t('order.total_price')%></th>
+    <th><%= t('main.actions')%></th>
   </tr>
 
 <% @orders.each do |order| %>
   <tr>
-	<td><%= order.id %></td>
+  <td><%= order.id %></td>
     <td><%= order.customer.name %></td>
     <td><%= order.pay_type %></td>
     <td><%= order.total_items %></td>
-    <td><%= order.total_price %></td>
+    <td><%= number_to_currency(order.total_price) %></td>
     <td>
-		<%= link_to raw('<i class="icon-folder-open"></i> Show'), order %><br/>
-    	<%= link_to 'Delete', order, confirm: 'Are you sure?', method: :delete %>
-	</td>
+    <%= link_to raw('<i class="icon-folder-open"></i> Show'), order %><br/>
+    <%= link_to raw('<i class="icon-trash"></i> Delete'), order, confirm: 'Are you sure?', method: :delete %>
+  </td>
   </tr>
 <% end %>
 </table>

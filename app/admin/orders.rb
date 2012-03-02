@@ -12,27 +12,43 @@ ActiveAdmin.register Order do
       order.total_items
     end
     column "Total Price" do |order|
-      order.total_price
+      number_to_currency(order.total_price)
     end
     column "Shop" do |order|
-      order.user.employee_detail.shop.name
+      order.user.shop.name
     end
     column "Employee" do |order|
-      order.user.employee_detail.first_name
+      order.user.name
     end
     column :created_at
     default_actions
   end
 
-  filter :user, :collection => proc {(User.all).map{|c| [c.employee_detail.first_name + " " + c.employee_detail.last_name, c.id]}}
-  #filter :user_employee_details_shop_name 
+  filter :user
+  #filter :shop
+  #filter :user, :collection => proc {(User.all).map{|c| [c.name, c.id]}} 
   filter :created_at
   filter :updated_at
 
   show do |order|
-
     render :partial => "info", :locals => {:order => order}
-        
   end #end show
   
+  csv do
+    column :id
+    column "Total Items" do |order|
+      order.total_items
+    end
+    column "Total Price" do |order|
+      order.total_price
+    end
+    column "Shop" do |order|
+      order.user.shop.name
+    end
+    column "Employee" do |order|
+      order.user.name
+    end
+    column :created_at
+  end
+
 end

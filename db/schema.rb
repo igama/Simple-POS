@@ -122,7 +122,7 @@ ActiveRecord::Schema.define(:version => 20120228100809) do
     t.string   "category",                                         :default => "Mobile"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "wholesale",          :precision => 8, :scale => 2
+    t.decimal  "wholesale",          :precision => 8, :scale => 2, :default => 0.0
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -147,6 +147,8 @@ ActiveRecord::Schema.define(:version => 20120228100809) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "name"
+    t.integer  "shop_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

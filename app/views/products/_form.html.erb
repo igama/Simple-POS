@@ -25,13 +25,6 @@
 </div>
 
 <div class="control-group">
-   <%= f.label :wholesale, t("activerecord.attributes.product.wholesale", :default => "Wholesale"), :class => "control-label" %>
-  <div class="input">
-    <%= f.text_field :wholesale, :class => 'text_field' %>
-  </div>
-</div>
-
-<div class="control-group">
    <%= f.label :brand_id, t("activerecord.attributes.product.brand_id", :default => "Brand"), :class => "control-label" %>
   <div class="input">
     <%= f.select :brand_id, Brand.all.map { |b| [b.name, b.id] }  %>

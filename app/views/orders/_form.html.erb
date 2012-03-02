@@ -1,14 +1,14 @@
 <%= form_for(@order, :html => {:class => "form-horizontal"}) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
-
+      <h3><%= pluralize(@order.errors.count, "error") %> <%= t('error.order.msg') %></h3>
       <ul>
       <% @order.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
+    <hr>
   <% end %>
 
   <%= f.fields_for :customer do |c| %>  
@@ -48,8 +48,8 @@
 
 
   <div class="control-group">
-    <div class="control-label">
-      <%= f.label t('.pay_type') %> <%= f.select :pay_type, Order::PAYMENT_TYPES, :prompt => 'Select payment method' %>
+      <div class="control-label">
+      <%= f.label t('.pay_type') %> <%= f.select :pay_type, Order::PAYMENT_TYPES.map { |c| [t("order.payment_types.#{c}"), c] }, :prompt => t('order.select_payment_type') %>
     </div>
   </div>
   <div class="actions">

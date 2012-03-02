@@ -17,6 +17,7 @@ class Product < ActiveRecord::Base
   
   #check before destroy
   before_destroy :ensure_not_referenced_by_any_cart_item
+  before_save :ensure_reference_number
   
   # Validations
   validates :name, :price, :presence => true
@@ -27,7 +28,7 @@ class Product < ActiveRecord::Base
   PRODUCT_CONDITION = ["Good", "Bad"]
   
   #Scop
-  default_scope :order => 'name'
+  #default_scope :order => 'name'
   
   def self.search_old(search)
     if search
@@ -56,6 +57,24 @@ class Product < ActiveRecord::Base
       errors.add(:base, 'Cart Items present')
       return false
     end
+  end
+
+  def ensure_reference_number
+    if self.reference.blank?
+      refid = Product.find(:all, :select => "DISTINCT reference", :order => 'reference DESC')
+
+      puts " -------------- \n "
+      puts "IN MODEL"
+      puts refid.to_s
+      puts refid[0].reference.to_s
+      puts " -------------- \n " 
+
+      if refid[0].reference >= 10000
+        self.reference = refid[0].reference + 1
+      else
+        self.reference = 10000
+      end  
+    end 
   end
   
   

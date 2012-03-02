@@ -18,7 +18,7 @@ class BrandsController < ApplicationController
   def show
     @brands = Brand.all
     @brand = Brand.find(params[:id])
-    @products = @brand.products.page params[:page]
+    @products = @brand.products.order(:name).page params[:page]
     @cart = current_cart
     
     respond_to do |format|

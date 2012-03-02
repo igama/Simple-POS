@@ -7,3 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Shop.create(name: "Main")
+
+Brand.create(name: "Brand1")
+
+Product.create(name: "Product1", price: "23.2", wholesale: "30", brand_id: "1", reference: "600" )
+
+Product.create(name: "AProduct1", price: "23.2", wholesale: "30", brand_id: "1" )
+
+Product.create(name: "CProduct1", price: "23.2", wholesale: "30", brand_id: "1" )
+
+Product.create(name: "BProduct1", price: "23.2", wholesale: "30", brand_id: "1" )

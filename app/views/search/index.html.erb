@@ -8,7 +8,7 @@
 <% if @products %>
 <ul>
 	<% @products.each do |product| %>
-		<li><%= link_to product.name, product %> - <%= product.price %></li>
+		<li><%= link_to product.name, product %> - <%= number_to_currency(product.price) %></li>
 	<% end %>
 </ul>
 <% end %>	
