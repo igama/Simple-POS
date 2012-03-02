@@ -11,7 +11,7 @@ class Cart < ActiveRecord::Base
       return item
     else
       if condition == 'Bad'
-        new_price = price.to_f/2.to_f
+        new_price = price.to_f/"2.00".to_f
         current_item = cart_items.build(:product_id => product_id, :product_price => new_price, :product_condition => condition)
       else
         current_item = cart_items.build(:product_id => product_id, :product_price => price, :product_condition => condition)

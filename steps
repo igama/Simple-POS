@@ -1,1 +1,3 @@
 rails runner -e production script/import.rb
+
+bundle exec rake assets:precompile RAILS_ENV="production"
