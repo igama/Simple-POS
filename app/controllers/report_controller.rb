@@ -8,10 +8,10 @@ class ReportController < ApplicationController
 
     @shops = Shop.all
 
-    @shop_info = []
-    @shop_day_info = []
 
     @shops.each do |shop|
+      @shop_info = []
+      @shop_day_info = []
       @current_month_sum = 0
       @current_week_sum = 0
       @users = shop.users.all
