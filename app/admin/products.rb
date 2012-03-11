@@ -44,4 +44,14 @@ ActiveAdmin.register Product do
     end
   end
 
+    csv do
+      column :reference
+      column :name
+      column("brand") { |product| product.brand.name }
+      column :price
+      column :wholesale
+      column("image") { |product| product.image.url }
+      #column("Author") { |post| post.author.full_name }
+    end
+
 end

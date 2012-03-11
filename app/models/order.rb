@@ -20,6 +20,10 @@ class Order < ActiveRecord::Base
   def total_items 
     order_items.sum(:quantity)
   end
+
+  def group_by_criteria
+    created_at.to_date.to_s(:db)
+  end
   
   def add_cart_items_from_cart(cart)
     cart.cart_items.each do |item|

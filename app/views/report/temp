@@ -1,0 +1,53 @@
+ @orders_current_month = Order.where('created_at >= ? AND user_id IN ?', @beginning_of_month, @users)
+      @orders_current_month.each do |order|
+        @current_month_sum += order.total_price
+      end
+      
+      @orders_current_week = Order.where('created_at < ? and created_at > ? and shop_id = ?', Time.now, @beginning_of_week, shop.id)
+      @orders_current_week.each do |order|
+        @current_week_sum += order.total_price
+      end
+
+      @orders_count_per_day = Order.count(:all, :conditions => ["created_at >= ? AND shop_id = ?", @beginning_of_month, shop.id], :group => "DATE(created_at)")
+      #@orders_1_week_ago = Order.where('created_at < ? and created_at > ? and id = ?', Time.now, 1.week.ago, shop.id).count
+      @orders_per_day = Order.where(:conditions => ["created_at >= ? AND shop_id = ?", @beginning_of_month, shop.id], :group => "DATE(created_at)")
+      
+
+      shop_detail = {
+            :name => shop.name,
+            :per_day_count => @orders_count_per_day,
+            :per_day => @orders_per_day,
+            :current_month_count => @orders_current_month.count,
+            :current_month_sum => @current_month_sum,
+            :current_week_count => @orders_current_week.count,
+            :current_week_sum => @current_week_sum
+      }
+
+
+      ------------------
+
+      <h2>Reports</h2>
+
+<p>
+Actual Time : <%= @time %> <br/>
+Beginning_of_month : <%= @beginning_of_month %> <br />
+Beginning_of_week : <%= @beginning_of_week %> <br />
+</p>
+
+<% @shop_info.each do |t| %>
+      <p><%= t[:name] %> </p>
+
+      <p> Semana Actual <br />
+      # de pedidos - Total <br />
+      <%= t[:current_week_count] %> - <%= t[:current_week_sum] %></p>
+
+      <p> Per Day during current month </p>
+      <% t[:per_day_count].each do |day,count| %>
+            <%= day %> - <%= count %>
+      <% end %>
+
+      <p> Per Day </p>
+      <% t[:per_day].each do |t| %>
+            <%= t %>
+      <% end %>
+<% end %>

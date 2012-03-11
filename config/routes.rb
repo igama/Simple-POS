@@ -1,5 +1,7 @@
 Phoneshop::Application.routes.draw do
 
+  get "report/index"
+  match 'report/shop/:id' => 'report#shop', :as => :report_shop
 
   get "order_report/generate"
 

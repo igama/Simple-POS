@@ -1,0 +1,31 @@
+<h2>Reports</h2>
+
+<p>
+Actual Time : <%= @time %> <br/>
+Beginning_of_month : <%= @beginning_of_month %> <br />
+Beginning_of_week : <%= @beginning_of_week %> <br />
+</p>
+
+<% @shop_info.each do |t| %>
+	<p><%= t[:name] %> </p>
+
+	<p> Per Day </p>
+	<% t[:users].each do |t| %>
+		<%= t.name %> <br />
+	<% end %>
+
+	  <p> Mês Actual <br />
+      # de pedidos - Total <br />
+      <%= t[:current_month_count] %> - <%= number_to_currency(t[:current_month_sum]) %></p>
+
+
+	  <p> Semana Actual <br />
+      # de pedidos - Total <br />
+      <%= t[:current_week_count] %> - <%= number_to_currency(t[:current_week_sum]) %></p>
+
+      <p> Per Day </p>
+      <% t[:shop_day_info].each do |d| %>
+            <%= d[:day] %> - <%= d[:per_day_count] %> - <%= d[:total_price] %>
+      <% end %>
+
+<% end %>
