@@ -1,31 +1,59 @@
 <h2>Reports</h2>
 
-<p>
-Actual Time : <%= @time %> <br/>
-Beginning_of_month : <%= @beginning_of_month %> <br />
-Beginning_of_week : <%= @beginning_of_week %> <br />
-</p>
-
 <% @shop_info.each do |t| %>
-	<p><%= t[:name] %> </p>
+      <h3>Loja : <%= t[:name] %> </h3>
 
-	<p> Per Day </p>
-	<% t[:users].each do |t| %>
-		<%= t.name %> <br />
-	<% end %>
+      <table class="table table-condensed">
+        <tr>
+          <th>Comerciais</th>
+        </tr>
+        <% t[:users].each do |t| %>
+            <tr>
+              <td><%= t.name %></td>
+            </tr>
+        <% end %>
+      </table>
 
-	  <p> Mês Actual <br />
-      # de pedidos - Total <br />
-      <%= t[:current_month_count] %> - <%= number_to_currency(t[:current_month_sum]) %></p>
+      <h4> Mês Actual (a partir de <%= @beginning_of_month %>) </h4>
+      <table class="table table-condensed table-striped">
+        <tr>
+          <th>N. de Pedidos</th>
+          <th>Total €</th>
+        </tr>
+        <tr>
+          <td><%= t[:current_month_count] %></td>
+          <td><%= number_to_currency(t[:current_month_sum]) %></td>
+        </tr>
+      </table>
 
+      <h4> Semana Actual (a partir de <%= @beginning_of_week %>) </h4>
+      <table class="table table-condensed table-striped">
+        <tr>
+          <th>N. de Pedidos</th>
+          <th>Total €</th>
+        </tr>
+        <tr>
+          <td><%= t[:current_week_count] %></td>
+          <td><%= number_to_currency(t[:current_week_sum]) %></td>
+        </tr>
+      </table>
 
-	  <p> Semana Actual <br />
-      # de pedidos - Total <br />
-      <%= t[:current_week_count] %> - <%= number_to_currency(t[:current_week_sum]) %></p>
+      <h4> Per Day </h4>
 
-      <p> Per Day </p>
-      <% t[:shop_day_info].each do |d| %>
-            <%= d[:day] %> - <%= d[:per_day_count] %> - <%= d[:total_price] %>
-      <% end %>
+      <table class="table table-condensed table-striped">
+        <tr>
+          <th>Dia</th>
+          <th>N. de Pedidos</th>
+          <th>Total €</th>
+        </tr>
+        <% t[:shop_day_info].each do |d| %>
+        <tr>
+            <td><%= d[:day] %></td>
+            <td><%= d[:per_day_count] %></td>
+            <td><%= d[:total_price] %></td>
+        </tr>
+        <% end %>
+        </table>
+
 
 <% end %>
