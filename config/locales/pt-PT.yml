@@ -51,6 +51,7 @@ pt-PT:
     payment_types:
       cash: "Dinheiro"
       paypal: "Paypal"
+      transfer: "Transferência"
     thank_you: "Pedido Realizado - Comprovativo pode ser impresso."
     generate_report: "Gerar Comprovativo"
 

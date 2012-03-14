@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
   has_one :customer, :dependent => :destroy
   belongs_to :user
   
-  PAYMENT_TYPES = ["cash", "paypal"]
+  PAYMENT_TYPES = ["cash", "paypal", "transfer"]
   
   validates :pay_type, :presence => true
   validates :pay_type, :inclusion => PAYMENT_TYPES
