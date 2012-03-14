@@ -72,6 +72,7 @@ pt-PT:
     unitprice: "Preço por Unidade"
     productID: "ID"
     products: "Produtos"
+    new_name: "Nome Completo (ex. Nokia 3310)"
 
   cart:
     add_to_cart: "Adicionar ao Pedido"
